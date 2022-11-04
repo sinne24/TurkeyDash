@@ -10,4 +10,14 @@ public class Home {
     private StoryBoard storyBoard;
 
 
+    public void execute() {
+        //TODO: begin Home operations
+
+        tallyPoints();
+        storyBoard.hostDinner();
+        guestReactions();
+        addBonusPoints();
+        presentScore();
+        celebrate();
+    }
 }

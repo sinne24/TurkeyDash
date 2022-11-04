@@ -7,24 +7,73 @@ import com.turkeydash.model.Dish;
 import com.turkeydash.model.Player;
 import com.turkeydash.storyboard.StoryBoard;
 
-public class TurkeyDashApp {
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
 
+public class TurkeyDashApp {
+    private Scanner scanner = new Scanner(System.in);
+    private static boolean readyToContinue = false;
     Location location;
     GeneralStore generalStore;
     Player player;
     Home home;
+    List<Dish> dishes = new ArrayList<>();
     Dish dish;
-    StoryBoard storyBoard;
+    StoryBoard storyBoard = new StoryBoard();
 
-    public void startScreen(){}
-    public void enterName(){}
+    public void execute() {
 
-    //TODO: figure out how to map ingredient enums, to dishes and player's basket
+        startScreen();
+        enterName ();
+        storyBoard.presentInstructions();
+        System.out.println("Are you ready to continue? ");
+        readyToContinue = storyBoard.readyToContinue();
+        if(!readyToContinue){
+            exit();
+        }
 
-    //TODO: Allow user to check basket
+        dishes.add(storyBoard.presentButcher());
+        dishes.add(storyBoard.presentBakery());
+        dishes.add(storyBoard.presentFarmersMarket());
+        dishes.add(storyBoard.presentLiquorStore());
 
-    //TODO:Allow user to return to sections of general store repeatedly.
+        player.setMenu(dishes);
+        storyBoard.presentGeneralStore();
+        generalStore.execute();
+
+        home.execute();
+
+        playAgain();
 
 
 
+        //TODO: Allow user to check basket
+
+        //TODO:Allow user to return to sections of general store repeatedly.
+
+    }
+
+    private void playAgain() {
+        System.out.println("Would you like to play again?");
+        readyToContinue = storyBoard.readyToContinue();
+        if(!readyToContinue){
+            exit();
+        }
+    }
+
+    private void startScreen() {
+        //TODO: populate and add welcome banner
+    }
+
+    private void enterName() {
+        player = new Player();
+        System.out.println("Please enter you name: ");
+        player.setName(scanner.nextLine().trim());
+    }
+
+    public void exit(){
+        System.out.println("Goodbye");
+        //TODO: terminate app
+    }
 }
