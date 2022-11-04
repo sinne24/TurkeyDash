@@ -70,4 +70,8 @@ public class StoryBoard {
         Dish selection;
         //TODO: Create and read in general store file
     }
+
+    public void hostDinner() {
+        //TODO: present dinner text file
+    }
 }

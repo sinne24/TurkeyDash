@@ -14,18 +14,16 @@ import java.util.Scanner;
 public class TurkeyDashApp {
     private Scanner scanner = new Scanner(System.in);
     private static boolean readyToContinue = false;
-    Location location;
     GeneralStore generalStore;
     Player player;
     Home home;
     List<Dish> dishes = new ArrayList<>();
-    Dish dish;
     StoryBoard storyBoard = new StoryBoard();
 
     public void execute() {
 
         startScreen();
-        enterName ();
+        enterName();
         storyBoard.presentInstructions();
         System.out.println("Are you ready to continue? ");
         readyToContinue = storyBoard.readyToContinue();
@@ -40,18 +38,11 @@ public class TurkeyDashApp {
 
         player.setMenu(dishes);
         storyBoard.presentGeneralStore();
-        generalStore.execute();
+        player.setBasket(generalStore.execute());
 
-        home.execute();
+        home.execute(player);
 
         playAgain();
-
-
-
-        //TODO: Allow user to check basket
-
-        //TODO:Allow user to return to sections of general store repeatedly.
-
     }
 
     private void playAgain() {
