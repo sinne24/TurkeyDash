@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/TurkeyDash.iml" filepath="$PROJECT_DIR$/TurkeyDash.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/TurkeyDash.iml" filepath="$PROJECT_DIR$/.idea/TurkeyDash.iml" />
     </modules>
   </component>
 </project>
