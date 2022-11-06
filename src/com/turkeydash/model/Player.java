@@ -1,5 +1,7 @@
 package com.turkeydash.model;
 
+import com.turkeydash.dishmodel.Dish;
+
 import java.util.List;
 
 public class Player {

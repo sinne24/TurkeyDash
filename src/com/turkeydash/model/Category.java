@@ -5,5 +5,5 @@ package com.turkeydash.model;
  */
 public enum Category {
     //TODO: confirm these with team
-    DRY_GOODS, DAIRY, REFRIGERATED, MISC
+    DRY_GOODS, REFRIDGERATED, SPIRITS, MISC, PRODUCE
 }
