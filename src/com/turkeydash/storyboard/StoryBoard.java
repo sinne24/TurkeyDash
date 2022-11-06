@@ -25,7 +25,6 @@ public class StoryBoard {
             if (input.matches("Y|N")) {
                 validInput = true;
                 readyToContinue = ("Y".equals(input)) ? (readyToContinue = true) : (readyToContinue = false);
-
             }
         }
         return readyToContinue;
