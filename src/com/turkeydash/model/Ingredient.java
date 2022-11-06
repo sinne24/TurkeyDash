@@ -4,11 +4,35 @@ import java.util.Arrays;
 import java.util.List;
 
 public enum Ingredient {
-    //TODO: Add more??
-    STUFFING("stuffing", 5, Category.DRY_GOODS), CRANBERRIES, BEER, HONEY, PINEAPPLE,CLOVES, FLOUR, EGG,
-    MILK, CREAM_OF_MUSHROOM, MARSHMALLOWS, BROWN_SUGAR, ORANGE_JUICE, MAYONNAISE, BUTTER, SAVORY_SEASONING, CHEESE,
-    BREADCRUMBS, OLIVE_OIL, GARLIC, NUTMEG, CINNAMON, APPLES, ORANGES, WHISKEY, RUM, CINNAMON, APEROL, PROSECCO,
-    CLUB_SODA;
+    STUFFING("stuffing", 5, Category.DRY_GOODS),
+    CRANBERRIES("cranberries", 5, Category.MISC),
+    BEER("beer", 5, Category.SPIRITS),
+    HONEY("honey", 5, Category.MISC),
+    PINEAPPLE("pineapple", 5, Category.PRODUCE),
+    CLOVES("cloves", 5, Category.DRY_GOODS),
+    FLOUR("flour", 5, Category.DRY_GOODS),
+    EGG("eggs", 5, Category.REFRIDGERATED),
+    MILK("milk", 5, Category.REFRIDGERATED),
+    CREAM_OF_MUSHROOM("cream of mushroom", 5, Category.MISC),
+    MARSHMALLOWS("marchmallows", 5, Category.DRY_GOODS),
+    BROWN_SUGAR("brown sugar", 5, Category.DRY_GOODS),
+    ORANGE_JUICE("orange juice", 5, Category.REFRIDGERATED),
+    MAYONNAISE("mayonnaise", 5, Category.MISC),
+    BUTTER("butter", 5, Category.REFRIDGERATED),
+    SAVORY_SEASONING("savory seasonings (salt, pepper, old bay", 5, Category.DRY_GOODS),
+    CHEESE("cheese", 5, Category.REFRIDGERATED),
+    BREADCRUMBS("breadcrumbs", 5, Category.DRY_GOODS),
+    OLIVE_OIL("olive oil", 5, Category.MISC),
+    GARLIC("garlic", 5, Category.PRODUCE),
+    NUTMEG("nutmeg", 5, Category.DRY_GOODS),
+    CINNAMON("cinnamon", 5, Category.DRY_GOODS),
+    APPLES("apples", 5, Category.PRODUCE),
+    ORANGES("oranges", 5, Category.PRODUCE),
+    WHISKEY("whiskey", 5, Category.SPIRITS),
+    RUM("rum", 5, Category.SPIRITS),
+    APEROL("aperol", 5, Category.SPIRITS),
+    PROSECCO("prosecco", 5, Category.SPIRITS),
+    CLUB_SODA("club soda", 5, Category.REFRIDGERATED);
 
     private String display;
     private int value;
