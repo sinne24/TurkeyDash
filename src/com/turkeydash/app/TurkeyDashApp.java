@@ -12,7 +12,9 @@ import java.util.List;
 import java.util.Scanner;
 
 public class TurkeyDashApp {
-    private Scanner scanner = new Scanner(System.in);
+    // Maybe we can implement a Scanner class that gets the same Scanner in several places instead of creating multiple
+    // instances that we have to go back and close.
+    private final Scanner scanner = new Scanner(System.in);
     private static boolean readyToContinue = false;
     GeneralStore generalStore;
     Player player;
@@ -64,7 +66,8 @@ public class TurkeyDashApp {
     }
 
     public void exit(){
+        scanner.close();                // Scott --> closes the scanner
         System.out.println("Goodbye");
-        //TODO: terminate app
+        System.exit(0);           // Scott --> tells the JVM to terminate
     }
 }
