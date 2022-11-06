@@ -38,7 +38,7 @@ public class TurkeyDashApp {
 
         player.setMenu(dishes);
         storyBoard.presentGeneralStore();
-        player.setBasket(generalStore.execute());
+        player.setBasket(generalStore.execute(player));
 
         home.execute(player);
 

@@ -1,16 +1,18 @@
 package com.turkeydash.locationmodel;
 
 import com.turkeydash.model.Ingredient;
+import com.turkeydash.model.Player;
 import com.turkeydash.storyboard.Obstacle;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-public class GeneralStore extends Location{
+public class GeneralStore extends Location {
     Obstacle obstacle;
 
-    public List<Ingredient> execute() {
+
+    public List<Ingredient> execute(Player player) {
         List<Ingredient> ingredientsToTakeHome = new ArrayList<>();
 
         //TODO: Begin gameplay design for the general store
