@@ -2,8 +2,7 @@ package com.turkeydash.app;
 
 import com.turkeydash.locationmodel.GeneralStore;
 import com.turkeydash.locationmodel.Home;
-import com.turkeydash.locationmodel.Location;
-import com.turkeydash.model.Dish;
+import com.turkeydash.dishmodel.Dish;
 import com.turkeydash.model.Player;
 import com.turkeydash.storyboard.StoryBoard;
 
@@ -23,7 +22,6 @@ public class TurkeyDashApp {
     StoryBoard storyBoard = new StoryBoard();
 
     public void execute() {
-
         startScreen();
         enterName();
         storyBoard.presentInstructions();

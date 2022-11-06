@@ -1,11 +1,17 @@
 package com.turkeydash.locationmodel;
 
-import com.turkeydash.model.Food;
+import com.turkeydash.dishmodel.Dish;
 import com.turkeydash.model.Proprietor;
 
+import java.util.List;
+
 public class Location {
-    Food food;
+    Dish dish;
     Proprietor proprietor;
+
+    List<Dish> getDishes(){
+        return null;
+    }
 
 
 }

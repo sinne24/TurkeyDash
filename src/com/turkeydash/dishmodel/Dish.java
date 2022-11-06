@@ -1,9 +1,10 @@
-package com.turkeydash.model;
+package com.turkeydash.dishmodel;
+
+import com.turkeydash.model.Ingredient;
 
 import java.util.List;
 
 public class Dish {
-    boolean isFavorite;
     List<Ingredient> ingredients;
 
     void isComplete() {

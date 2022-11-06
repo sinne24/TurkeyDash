@@ -26,6 +26,10 @@ public class Home {
         celebrate();
     }
 
+//    private void packagePlayer(Player player){
+//       this.player = player;
+//    }
+
     private void celebrate() {
     }
 
