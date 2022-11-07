@@ -1,1 +1,4 @@
-Door, jingles as warm delicious odors waft you way. "Welcome friend to the local bakery!"
+Door, jingles as warm delicious odors waft you way. "Welcome friend to the local bakery!
+ Unfortunately, most of our baked good are gone. We only have handmade Macaroni, Pie Crust, and Bread left.
+ You could use these to make Mac and Cheese, Apple Pie or Garlic Bread.
+  Don’t worry I’ll tell you the other ingredients you’ll need to complete the dish you choose."
