@@ -9,4 +9,9 @@ public class RoastedCorn extends Dish {
 
     //TODO: map list of associated ingredients to this class
     void isComplete() {}
+
+    @Override
+    public String getDishName(){
+        return RoastedCorn.class.getSimpleName();
+    }
 }

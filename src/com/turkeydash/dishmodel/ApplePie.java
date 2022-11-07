@@ -9,4 +9,9 @@ public class ApplePie extends Dish {
 
     //TODO: map list of associated ingredients to this class
     void isComplete() {}
+
+    @Override
+    public String getDishName(){
+        return ApplePie.class.getSimpleName();
+    }
 }

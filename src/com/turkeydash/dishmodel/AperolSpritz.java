@@ -8,5 +8,11 @@ public class AperolSpritz extends Dish {
     List<Ingredient> ingredients;
 
     //TODO: map list of associated ingredients to this class
-    void isComplete() {}
+    void isComplete() {
+    }
+
+    @Override
+    public String getDishName(){
+        return AperolSpritz.class.getSimpleName();
+    }
 }

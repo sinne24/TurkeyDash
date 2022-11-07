@@ -5,6 +5,7 @@ import com.turkeydash.locationmodel.Bakery;
 import com.turkeydash.locationmodel.ButcherShop;
 import com.turkeydash.locationmodel.FarmersMarket;
 import com.turkeydash.locationmodel.LiquorStore;
+import com.turkeydash.model.Ingredient;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -81,18 +82,18 @@ public class StoryBoard {
         file = "data/presentBaker.txt";
         presentExpositionText(file);
         System.out.println("I serve: ");
-        List<String> grains = butcher.getDishNames();
+        List<String> grains = baker.getDishNames();
         dump(grains);
         System.out.println("Which of these would you like?");
 
         while (!validInput) {
-            System.out.println("Please enter 'M'- for macaroni and cheese, 'B'- for french bread, or 'A' for apple pie. ");
+            System.out.println("Please enter 'M'- for macaroni and cheese, 'G'- for garlic bread, or 'A' for apple pie. ");
             input = scanner.nextLine().trim().toUpperCase();
-            if (input.matches("M|B|A")) {
+            if (input.matches("M|G|A")) {
                 validInput = true;
                 if (input == "M") {
                     selection = new MacAndCheese();
-                } else if (input == "B") {
+                } else if (input == "G") {
                     selection = new GarlicBread();
                 } else {
                     selection = new ApplePie();
@@ -109,7 +110,7 @@ public class StoryBoard {
         file = "data/presentFarmer.txt";
         presentExpositionText(file);
         System.out.println("I serve: ");
-        List<String> grains = butcher.getDishNames();
+        List<String> grains = farmersMarket.getDishNames();
         dump(grains);
         System.out.println("Which of these would you like?");
 
@@ -133,10 +134,13 @@ public class StoryBoard {
     public Dish presentLiquorStore() {
         Dish selection = null;
         validInput = false;
-        //TODO: Create and read in Butcher file
-        // Welcome, which meat would you like? Our options are:
-        List<Dish> meats = liquorStore.getDishes();
-        dump(meats);
+
+        file = "data/presentFarmer.txt";
+        presentExpositionText(file);
+        System.out.println("I serve: ");
+        List<String> grains = liquorStore.getDishNames();
+        dump(grains);
+        System.out.println("Which of these would you like?");
 
         while (!validInput) {
             System.out.println("Please enter 'S'- for sangria, 'E'- for eggnog, or 'A' for aperol spritz. ");
