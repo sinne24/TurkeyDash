@@ -25,10 +25,8 @@ public class StoryBoard {
     String file;
 
     public void presentInstructions() {
-        //TODO: Create and read in csv instruction file
-        System.out.println("/////////////////////");
-        System.out.println("CSV instruction file");
-        System.out.println("/////////////////////");
+        file = "data/IntroInstructions.txt";
+        presentExpositionText(file);
     }
 
     public boolean readyToContinue() {
@@ -43,6 +41,7 @@ public class StoryBoard {
                 readyToContinue = ("Y".equals(input)) ? (readyToContinue = true) : (readyToContinue = false);
             }
         }
+        System.out.println();
         return readyToContinue;
     }
 
@@ -97,13 +96,17 @@ public class StoryBoard {
                 validInput = true;
                 if (input.equals("M")) {
                     selection = new MacAndCheese();
+                    file = "data/recipes/MacnCheeseBakery.txt";
                 } else if (input.equals("G")) {
                     selection = new GarlicBread();
+                    file = "data/recipes/GarlicBreadBakery.txt";
                 } else {
                     selection = new ApplePie();
+                    file = "data/recipes/ApplePieBakery.txt";
                 }
             }
         }
+        presentExpositionText(file);
         return selection;
     }
 
@@ -119,19 +122,23 @@ public class StoryBoard {
         System.out.println("Which of these would you like?");
 
         while (!validInput) {
-            System.out.println("Please enter 'G'- for green bean casserole, 'S'- for candied sweet potatoes, or 'C' for roasted corn. ");
+            System.out.println("Please enter 'G'- for green bean casserole, 'C'- for candied sweet potatoes, or 'R' for roasted corn. ");
             input = scanner.nextLine().trim().toUpperCase();
-            if (input.matches("G|S|C")) {
+            if (input.matches("G|S|R")) {
                 validInput = true;
                 if (input.equals("G")) {
                     selection = new GreenBeanCasserole();
+                    file = "data/recipes/GreenBeanCas.txt";
                 } else if (input.equals("S")) {
                     selection = new CandiedSweetPotatoes();
+                    file = "data/recipes/SweetPoFarmer.txt";
                 } else {
                     selection = new RoastedCorn();
+                    file = "data/recipes/RoastedCorn.txt";
                 }
             }
         }
+        presentExpositionText(file);
         return selection;
     }
 
@@ -153,13 +160,17 @@ public class StoryBoard {
                 validInput = true;
                 if (input.equals("S")) {
                     selection = new Sangria();
+                    file = "data/recipes/SangriaLiquor.txt";
                 } else if (input.equals("E")) {
                     selection = new Eggnog();
+                    file = "data/recipes/EggnogLiquor.txt";
                 } else {
                     selection = new AperolSpritz();
+                    file = "data/recipes/AperolSpritz.txt";
                 }
             }
         }
+        presentExpositionText(file);
         return selection;
     }
 
