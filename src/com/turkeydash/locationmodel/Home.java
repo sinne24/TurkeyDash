@@ -13,6 +13,7 @@ public class Home {
     private Player player;
 
 
+
     public void execute(Player player) {
         setPlayer(player);
         setIngredientsToTally(player.getBasket());
@@ -43,6 +44,15 @@ public class Home {
     }
 
     private void tallyPoints() {
+//        int points = 0;
+//
+//             for (Ingredient ingredient : ingredientsToTally) {
+//                  if ( ingredient == player) {// trying to check my ingredients with player menu ingredient
+//
+//                points += 1;
+//
+//            }
+//        }
     }
 
     public List<Ingredient> getIngredientsToTally() {

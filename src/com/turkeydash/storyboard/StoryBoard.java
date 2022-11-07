@@ -72,6 +72,7 @@ public class StoryBoard {
         }
         System.out.println("Nice choice!");
         return selection;
+
     }
 
     public Dish presentBakery() {
