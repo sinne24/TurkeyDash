@@ -7,6 +7,9 @@ import java.util.List;
 public class Dish {
     List<Ingredient> ingredients;
 
+    public String getDishName(){
+        return "dish name";
+    }
     void isComplete() {
 
     }

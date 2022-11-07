@@ -11,4 +11,9 @@ public class Chicken extends Dish{
     void isComplete() {
 
     }
+
+    @Override
+    public String getDishName(){
+        return Chicken.class.getSimpleName();
+    }
 }

@@ -11,4 +11,9 @@ public class Turkey extends Dish{
     void isComplete() {
 
     }
+
+    @Override
+    public String getDishName(){
+        return Turkey.class.getSimpleName();
+    }
 }

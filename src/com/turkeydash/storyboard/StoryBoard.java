@@ -1,14 +1,14 @@
 package com.turkeydash.storyboard;
 
-import com.turkeydash.dishmodel.Chicken;
-import com.turkeydash.dishmodel.Ham;
-import com.turkeydash.dishmodel.Turkey;
+import com.turkeydash.dishmodel.*;
 import com.turkeydash.locationmodel.Bakery;
 import com.turkeydash.locationmodel.ButcherShop;
 import com.turkeydash.locationmodel.FarmersMarket;
 import com.turkeydash.locationmodel.LiquorStore;
-import com.turkeydash.dishmodel.Dish;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.Collection;
 import java.util.List;
 import java.util.Scanner;
@@ -21,10 +21,13 @@ public class StoryBoard {
     FarmersMarket farmersMarket = new FarmersMarket();
     boolean validInput = false;
     String input;
+    String file;
 
     public void presentInstructions() {
         //TODO: Create and read in csv instruction file
-        System.out.println("csv instruction file");
+        System.out.println("/////////////////////");
+        System.out.println("CSV instruction file");
+        System.out.println("/////////////////////");
     }
 
     public boolean readyToContinue() {
@@ -45,10 +48,13 @@ public class StoryBoard {
     public Dish presentButcher() {
         Dish selection = null;
         validInput = false;
-        //TODO: Create and read in Butcher file
-        // Welcome, which meat would you like? Our options are:
-        List<Dish> meats = butcher.getDishes();
+
+        file = "data/presentButcher.txt";
+        presentExpositionText(file);
+        System.out.println("I serve: ");
+        List<String> meats = butcher.getDishNames();
         dump(meats);
+        System.out.println("Which of these would you like?");
 
         while (!validInput) {
             System.out.println("Please enter 'C'- for chicken, 'H'- for ham, or 'T' for turkey. ");
@@ -64,37 +70,99 @@ public class StoryBoard {
                 }
             }
         }
+        System.out.println("Nice choice!");
         return selection;
     }
 
     public Dish presentBakery() {
-        Dish selection;
+        Dish selection = null;
         validInput = false;
-        //TODO: Create and read in Baker file
-        List<Dish> grains = baker.getDishes();
-        return takeInSelection(grains);
+
+        file = "data/presentBaker.txt";
+        presentExpositionText(file);
+        System.out.println("I serve: ");
+        List<String> grains = butcher.getDishNames();
+        dump(grains);
+        System.out.println("Which of these would you like?");
+
+        while (!validInput) {
+            System.out.println("Please enter 'M'- for macaroni and cheese, 'B'- for french bread, or 'A' for apple pie. ");
+            input = scanner.nextLine().trim().toUpperCase();
+            if (input.matches("M|B|A")) {
+                validInput = true;
+                if (input == "M") {
+                    selection = new MacAndCheese();
+                } else if (input == "B") {
+                    selection = new GarlicBread();
+                } else {
+                    selection = new ApplePie();
+                }
+            }
+        }
+        return selection;
     }
 
     public Dish presentFarmersMarket() {
-        Dish selection;
+        Dish selection = null;
         validInput = false;
-        //TODO: Create and read in farmer's market Proprietor file
-        List<Dish> produce = farmersMarket.getDishes();
-        return takeInSelection(produce);
+
+        file = "data/presentFarmer.txt";
+        presentExpositionText(file);
+        System.out.println("I serve: ");
+        List<String> grains = butcher.getDishNames();
+        dump(grains);
+        System.out.println("Which of these would you like?");
+
+        while (!validInput) {
+            System.out.println("Please enter 'G'- for green bean casserole, 'S'- for candied sweet potatoes, or 'C' for roasted corn. ");
+            input = scanner.nextLine().trim().toUpperCase();
+            if (input.matches("G|S|C")) {
+                validInput = true;
+                if (input == "G") {
+                    selection = new GreenBeanCasserole();
+                } else if (input == "S") {
+                    selection = new CandiedSweetPotatoes();
+                } else {
+                    selection = new RoastedCorn();
+                }
+            }
+        }
+        return selection;
     }
 
     public Dish presentLiquorStore() {
-        Dish selection;
+        Dish selection = null;
         validInput = false;
-        //TODO: Create and read in liquor store Proprietor file
-        List<Dish> beverage = liquorStore.getDishes();
-        return takeInSelection(beverage);
+        //TODO: Create and read in Butcher file
+        // Welcome, which meat would you like? Our options are:
+        List<Dish> meats = liquorStore.getDishes();
+        dump(meats);
+
+        while (!validInput) {
+            System.out.println("Please enter 'S'- for sangria, 'E'- for eggnog, or 'A' for aperol spritz. ");
+            input = scanner.nextLine().trim().toUpperCase();
+            if (input.matches("S|E|A")) {
+                validInput = true;
+                if (input == "S") {
+                    selection = new Sangria();
+                } else if (input == "E") {
+                    selection = new Eggnog();
+                } else {
+                    selection = new AperolSpritz();
+                }
+            }
+        }
+        return selection;
     }
 
-    private Dish takeInSelection(List<Dish> dishes) {
-        Dish dish = null;
-        //TODO: prompt for and set dish
-        return dish;
+    void presentExpositionText(String file){
+        try{
+            String exposition = Files.readString(Paths.get(file)); //Java 11. Path.of()
+            System.out.println(exposition);
+        } catch (IOException e){
+            e.printStackTrace();
+        }
+
     }
 
     private static void dump(Collection<?> collection) {
