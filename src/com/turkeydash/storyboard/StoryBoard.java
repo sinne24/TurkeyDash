@@ -50,7 +50,7 @@ public class StoryBoard {
         Dish selection = null;
         validInput = false;
 
-        file = "data/presentButcher.txt";
+        file = "data/locations/presentButcher.txt";
         presentExpositionText(file);
         System.out.println("I serve: ");
         List<String> meats = butcher.getDishNames();
@@ -62,16 +62,19 @@ public class StoryBoard {
             input = scanner.nextLine().trim().toUpperCase();
             if (input.matches("C|H|T")) {
                 validInput = true;
-                if (input == "C") {
+                if (input.equals("C")) {
                     selection = new Chicken();
-                } else if (input == "T") {
+                    file = "data/recipes/ChickenButcher.txt";
+                } else if (input.equals("T")) {
                     selection = new Turkey();
+                    file = "data/recipes/TurkeyButcher.txt";
                 } else {
                     selection = new Ham();
+                    file = "data/recipes/HamButcher.txt";
                 }
             }
         }
-        System.out.println("Nice choice!");
+        presentExpositionText(file);
         return selection;
 
     }
@@ -80,7 +83,7 @@ public class StoryBoard {
         Dish selection = null;
         validInput = false;
 
-        file = "data/presentBaker.txt";
+        file = "data/locations/presentBaker.txt";
         presentExpositionText(file);
         System.out.println("I serve: ");
         List<String> grains = baker.getDishNames();
@@ -92,9 +95,9 @@ public class StoryBoard {
             input = scanner.nextLine().trim().toUpperCase();
             if (input.matches("M|G|A")) {
                 validInput = true;
-                if (input == "M") {
+                if (input.equals("M")) {
                     selection = new MacAndCheese();
-                } else if (input == "G") {
+                } else if (input.equals("G")) {
                     selection = new GarlicBread();
                 } else {
                     selection = new ApplePie();
@@ -108,7 +111,7 @@ public class StoryBoard {
         Dish selection = null;
         validInput = false;
 
-        file = "data/presentFarmer.txt";
+        file = "data/locations/presentFarmer.txt";
         presentExpositionText(file);
         System.out.println("I serve: ");
         List<String> grains = farmersMarket.getDishNames();
@@ -120,9 +123,9 @@ public class StoryBoard {
             input = scanner.nextLine().trim().toUpperCase();
             if (input.matches("G|S|C")) {
                 validInput = true;
-                if (input == "G") {
+                if (input.equals("G")) {
                     selection = new GreenBeanCasserole();
-                } else if (input == "S") {
+                } else if (input.equals("S")) {
                     selection = new CandiedSweetPotatoes();
                 } else {
                     selection = new RoastedCorn();
@@ -136,7 +139,7 @@ public class StoryBoard {
         Dish selection = null;
         validInput = false;
 
-        file = "data/presentFarmer.txt";
+        file = "data/locations/presentLiquorEmployee.txt";
         presentExpositionText(file);
         System.out.println("I serve: ");
         List<String> grains = liquorStore.getDishNames();
@@ -148,9 +151,9 @@ public class StoryBoard {
             input = scanner.nextLine().trim().toUpperCase();
             if (input.matches("S|E|A")) {
                 validInput = true;
-                if (input == "S") {
+                if (input.equals("S")) {
                     selection = new Sangria();
-                } else if (input == "E") {
+                } else if (input.equals("E")) {
                     selection = new Eggnog();
                 } else {
                     selection = new AperolSpritz();
