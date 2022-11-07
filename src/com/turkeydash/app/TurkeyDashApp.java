@@ -5,6 +5,7 @@ import com.turkeydash.locationmodel.Home;
 import com.turkeydash.dishmodel.Dish;
 import com.turkeydash.model.Player;
 import com.turkeydash.storyboard.StoryBoard;
+import jdk.swing.interop.SwingInterOpUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,7 +31,6 @@ public class TurkeyDashApp {
         if(!readyToContinue){
             exit();
         }
-
         dishes.add(storyBoard.presentButcher());
         dishes.add(storyBoard.presentBakery());
         dishes.add(storyBoard.presentFarmersMarket());
@@ -55,12 +55,15 @@ public class TurkeyDashApp {
 
     private void startScreen() {
         //TODO: populate and add welcome banner
+        System.out.println("S T A R T    S C R E E N");
+        System.out.println("-------------------------");
     }
 
     private void enterName() {
         player = new Player();
         System.out.println("Please enter you name: ");
         player.setName(scanner.nextLine().trim());
+        System.out.println("Welcome " + player.getName() + "!");
     }
 
     public void exit(){

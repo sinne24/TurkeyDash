@@ -49,8 +49,9 @@ public enum Ingredient {
         // and return all the ones that have the specified category
         // java.util.stream can help here
 
-        return Arrays.asList(Ingredient.values()).stream()
-                .filter(ingredient -> ingredient.getCategory().equals(category);
+//        return Arrays.asList(Ingredient.values()).stream()
+//                .filter(ingredient -> ingredient.getCategory().equals(category);
+        return null;
     }
 
     // OR you could think the other way,

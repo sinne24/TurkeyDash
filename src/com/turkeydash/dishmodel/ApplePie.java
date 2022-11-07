@@ -4,16 +4,14 @@ import com.turkeydash.model.Ingredient;
 
 import java.util.List;
 
-public class Ham extends Dish {
+public class ApplePie extends Dish {
     List<Ingredient> ingredients;
 
     //TODO: map list of associated ingredients to this class
-    void isComplete() {
-
-    }
+    void isComplete() {}
 
     @Override
     public String getDishName(){
-        return Ham.class.getSimpleName();
+        return ApplePie.class.getSimpleName();
     }
 }

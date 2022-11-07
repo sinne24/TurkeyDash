@@ -13,5 +13,9 @@ public class Location {
         return null;
     }
 
+    public List<String> getDishNames(){
+        return null;
+    }
+
 
 }
