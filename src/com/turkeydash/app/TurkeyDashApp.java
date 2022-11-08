@@ -3,6 +3,7 @@ package com.turkeydash.app;
 import com.turkeydash.locationmodel.GeneralStore;
 import com.turkeydash.locationmodel.Home;
 import com.turkeydash.dishmodel.Dish;
+import com.turkeydash.model.Ingredient;
 import com.turkeydash.model.Player;
 import com.turkeydash.storyboard.StoryBoard;
 import jdk.swing.interop.SwingInterOpUtils;
@@ -16,8 +17,9 @@ public class TurkeyDashApp {
     // instances that we have to go back and close.
     private final Scanner scanner = new Scanner(System.in);
     private static boolean readyToContinue = false;
+    private static boolean play = true;
     GeneralStore generalStore = new GeneralStore();
-    Player player;
+    Player player = new Player();
     Home home = new Home();
     List<Dish> dishes = new ArrayList<>();
     StoryBoard storyBoard = new StoryBoard();
@@ -31,26 +33,37 @@ public class TurkeyDashApp {
         if(!readyToContinue){
             exit();
         }
-        dishes.add(storyBoard.presentButcher());
-        dishes.add(storyBoard.presentBakery());
-        dishes.add(storyBoard.presentFarmersMarket());
-        dishes.add(storyBoard.presentLiquorStore());
+        while(play) {
+            if(!player.getBasket().isEmpty()) {
+                emptyPlayerHoldings();
+            }
+            dishes.add(storyBoard.presentButcher());
+            dishes.add(storyBoard.presentBakery());
+            dishes.add(storyBoard.presentFarmersMarket());
+            dishes.add(storyBoard.presentLiquorStore());
 
-        player.setMenu(dishes);
-        storyBoard.presentGeneralStore();
-        player.setBasket(generalStore.execute());
+            player.setMenu(dishes);
+            storyBoard.presentGeneralStore();
+            player.setBasket(generalStore.execute());
 
-        home.execute(player);
+            home.execute(player);
 
-        playAgain();
+            play = playAgain();
+        }
     }
 
-    private void playAgain() {
+    private void emptyPlayerHoldings() {
+        player.emptyPlayerItems();
+    }
+
+    private boolean playAgain() {
         System.out.println("Would you like to play again?");
         readyToContinue = storyBoard.readyToContinue();
         if(!readyToContinue){
+            play = false;
             exit();
         }
+        return true;
     }
 
     private void startScreen() {

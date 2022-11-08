@@ -2,6 +2,7 @@ package com.turkeydash.model;
 
 import com.turkeydash.dishmodel.Dish;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Player {
@@ -9,6 +10,18 @@ public class Player {
     List<Dish> menu;
     List<Ingredient> basket;
     int points;
+
+    public Player() {
+        this.name = "";
+        this.menu = new ArrayList<>();
+        this.basket = new ArrayList<>();
+    }
+
+    public void emptyPlayerItems(){
+        menu.clear();
+        basket.clear();
+        points = 0;
+    }
 
     public String getName() {
         return name;
