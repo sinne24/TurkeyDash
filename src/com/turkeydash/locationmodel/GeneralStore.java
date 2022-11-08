@@ -188,12 +188,13 @@ public class GeneralStore extends Location {
             String removeMore = scanner.next();
             if (removeMore.matches("N")) {
                 finishedUpdating = true;
+                break;
             } else if(removeMore.matches("Y")) {
                 System.out.println("Okay, what else do you want to remove?");
             }
         }
-
     }
+
     public void decisionValidator() {
         boolean validInput = false;
         while (!validInput) {
