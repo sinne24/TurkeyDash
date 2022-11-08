@@ -83,8 +83,6 @@ public class GeneralStore extends Location {
                 break;
             case 7:
                 continueToShop = false;
-                // don't think I need this
-                break;
         }
     }
 
