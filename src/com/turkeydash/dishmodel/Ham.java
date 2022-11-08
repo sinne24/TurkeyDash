@@ -19,6 +19,11 @@ public class Ham extends Dish {
     }
 
     @Override
+    public List<Ingredient> getIngredients() {
+        return ingredients;
+    }
+
+    @Override
     public String getDishName(){
         return Ham.class.getSimpleName();
     }

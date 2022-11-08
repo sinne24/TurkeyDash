@@ -11,7 +11,7 @@ import java.util.List;
 public class Home {
     private List<Ingredient> ingredientsToTally;
     private int score;
-    private StoryBoard storyBoard;
+    private StoryBoard storyBoard = new StoryBoard();
     private Player player;
     private int points;
 

@@ -18,7 +18,7 @@ public class TurkeyDashApp {
     private static boolean readyToContinue = false;
     GeneralStore generalStore = new GeneralStore();
     Player player;
-    Home home;
+    Home home = new Home();
     List<Dish> dishes = new ArrayList<>();
     StoryBoard storyBoard = new StoryBoard();
 
