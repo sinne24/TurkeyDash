@@ -183,6 +183,7 @@ public class StoryBoard {
     }
 
     public void hostDinner() {
-        //TODO: present dinner text file
+        file = "data/locations/presentHome.txt";
+        presentExpositionText(file);
     }
 }
