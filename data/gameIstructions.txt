@@ -1,0 +1,13 @@
+You will stop at the Butcher Shop, Farmers Market, Bakery, and Liquor Store to choose the main dishes for dinner.
+The store owners will give you three ingredients to complete the recipe. The goal is to remember all the ingredients.
+In the General Store, you will go through the aisles and finish buying all the necessary ingredients.
+Finally, you will arrive home and wait for your family to rate the dishes you have prepared.
+
+Game points-
+There are four main dishes; each dish has three ingredients.
+Each ingredient is worth 5 points. At the end of the game, you'll be graded based on how many points you have.
+Max points are 60!
+
+Extra points-
+Your family will give you extra points for their favorite dishes.
+You can get up to 5 points for every dish. Max points are 20
