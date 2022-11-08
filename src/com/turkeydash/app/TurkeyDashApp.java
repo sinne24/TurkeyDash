@@ -16,7 +16,7 @@ public class TurkeyDashApp {
     // instances that we have to go back and close.
     private final Scanner scanner = new Scanner(System.in);
     private static boolean readyToContinue = false;
-    GeneralStore generalStore;
+    GeneralStore generalStore = new GeneralStore();
     Player player;
     Home home;
     List<Dish> dishes = new ArrayList<>();
@@ -38,7 +38,7 @@ public class TurkeyDashApp {
 
         player.setMenu(dishes);
         storyBoard.presentGeneralStore();
-        player.setBasket(generalStore.execute(player));
+        player.setBasket(generalStore.execute());
 
         home.execute(player);
 
@@ -70,11 +70,5 @@ public class TurkeyDashApp {
         scanner.close();                // Scott --> closes the scanner
         System.out.println("Goodbye");
         System.exit(0);           // Scott --> tells the JVM to terminate
-    }
-
-    public static void main(String[] args) {
-        GeneralStore test = new GeneralStore();
-        Player player = new Player();
-        test.execute(player);
     }
 }
