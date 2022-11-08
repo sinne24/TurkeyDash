@@ -18,7 +18,8 @@ public class GeneralStore extends Location {
     private final List<Ingredient> cart = new ArrayList<>();
     boolean continueToShop = true;
     private final int MIN_INPUT_VALUE = 1;
-    private final int MAX_INPUT_VALUE = 6;
+    private final int MAX_INPUT_VALUE = 7;
+    private final int cartLimit = 12;
 
     private final Scanner scanner = new Scanner(System.in);
     private final Aisle produce = new Aisle(Category.PRODUCE);
@@ -39,13 +40,16 @@ public class GeneralStore extends Location {
     private void generalStoreGuide() {
         // May replace with read-in CSV file.
         String checkoutLeave = "Checkout and leave?";
+        String removeItems = "Remove items";
         System.out.printf("Where would you like to go?\n" +
                           "   1. %s\n" +
                           "   2. %s\n" +
                           "   3. %s\n" +
                           "   4. %s\n" +
                           "   5. %s\n" +
-                          "   6. %s\n", produce.getCategory(), refrigerated.getCategory(), dryGoods.getCategory(), spirits.getCategory(), misc.getCategory(), checkoutLeave);
+                          "   6. %s\n" +
+                          "   7. %s\n", produce.getCategory(), refrigerated.getCategory(), dryGoods.getCategory(),
+                                        spirits.getCategory(), misc.getCategory(), removeItems, checkoutLeave);
     }
 
 
@@ -55,7 +59,6 @@ public class GeneralStore extends Location {
 
         switch (userChoice) {
             case 1:
-//                getAisleItems(produce.getCategory());
                 printItemList(getAisleItems(produce.getCategory()));
                 selectItems(produce.getCategory());
                 break;
@@ -76,8 +79,10 @@ public class GeneralStore extends Location {
                 selectItems(misc.getCategory());
                 break;
             case 6:
-                continueToShop = false;
+                updateCart();
                 break;
+            case 7:
+                continueToShop = false;
         }
     }
 
@@ -91,15 +96,11 @@ public class GeneralStore extends Location {
                 String[] tokens = line.split(",");
                 String category = String.valueOf(tokens[0]);
                 String itemName = tokens[1].toUpperCase();
-
                 Ingredient ingredientItem = Ingredient.valueOf(itemName);
 
-
                 if (category.equals(aisleChoice.toString())) {
-//                    aisleMap.put(category, ingredientItem);
                     ingredientArrayList.add(ingredientItem);
                 }
-
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -115,13 +116,20 @@ public class GeneralStore extends Location {
         }
     }
 
+    // TODO: break up this behemoth into other methods.
     private void selectItems(Category aisleCategory) {
         boolean continueAddingItems = true;
 
         while (continueAddingItems) {
+            if (limitCart()) {
+                System.out.println("\nYou've hit the maximum number of items that you can add to your cart!\n" +
+                                   "You can checkout and leave the store, or remove some items from the main menu.\n");
+                break;
+            }
+            System.out.println();
             System.out.println("Please type what you would you like (use underscores for spaces).");
             String itemSelection = scanner.next().toUpperCase();
-
+            System.out.println();
             // if it exists it can be added to the List
             if (itemValidator(itemSelection.toUpperCase(), getAisleItems(aisleCategory))) {
 
@@ -129,12 +137,17 @@ public class GeneralStore extends Location {
                 Ingredient selectedIngredient = Ingredient.valueOf(itemSelection);
                 cart.add(selectedIngredient);
                 System.out.printf("%s has been added to your cart!\n", itemSelection);
+                checkCart();
 
-                System.out.println("Would you like to add another item? (Y/N)");
+                System.out.println("Would you like to add another item from this aisle? (Y/N)");
                 String addMoreItems = scanner.next().trim().toUpperCase();
+                System.out.println();
 
                 if (addMoreItems.matches("N")) {
                     continueAddingItems = false;
+                } else if(addMoreItems.matches("Y")) {
+                    List<Ingredient> getAisleStuff = getAisleItems(aisleCategory);
+                    printItemList(getAisleStuff);
                 }
             } else {
                 System.out.println("Item not found. Please try something else.");
@@ -143,19 +156,63 @@ public class GeneralStore extends Location {
         }
     }
 
-    // COME BACK TO THIS
+    private void checkCart() {
+        System.out.printf("You have %s items in your cart containing: %s\n", getCart().size(), getCart());
+        System.out.println();
+    }
+
+    private boolean limitCart() {
+        boolean limitReached = false;
+        int cartSize = getCart().size();
+        if (cartSize == cartLimit) {
+            limitReached = true;
+        }
+        return limitReached;
+    }
+
+    private void updateCart() {
+        boolean finishedUpdating = false;
+        System.out.println("So which item(s) do you want to remove?");
+        while (!finishedUpdating) {
+            checkCart();
+            String itemToRemove = scanner.next().toUpperCase();
+            for (int i = 0; i < getCart().size(); i++) {
+                Ingredient currentItem = getCart().get(i);
+                if (itemToRemove.matches(String.valueOf(currentItem))) {
+                    getCart().remove(currentItem);
+                    System.out.printf("%s was removed from your cart",currentItem);
+                }
+            }
+            checkCart();
+            System.out.println("Remove anything else? (Y/N)");
+            String removeMore = scanner.next();
+            if (removeMore.matches("N")) {
+                finishedUpdating = true;
+                break;
+            } else if(removeMore.matches("Y")) {
+                System.out.println("Okay, what else do you want to remove?");
+            }
+        }
+    }
+
     public void decisionValidator() {
         boolean validInput = false;
         while (!validInput) {
-            System.out.print("Option: ");
-            int input = scanner.nextInt();
-            if (input >= MIN_INPUT_VALUE && input <= MAX_INPUT_VALUE) {
-                System.out.println();
-                validInput = true;
-                decisionHandler(input);
-            } else {
-                System.out.printf("Invalid selection, please choose a number between" +
-                        " %s and %s\n", MIN_INPUT_VALUE, MAX_INPUT_VALUE);
+            try {
+                System.out.print("Option: ");
+                String input = scanner.next().trim();
+                int parseInput = Integer.parseInt(input);
+                if (parseInput >= MIN_INPUT_VALUE && parseInput <= MAX_INPUT_VALUE) {
+                    System.out.println();
+                    validInput = true;
+                    decisionHandler(parseInput);
+                } else {
+                    System.out.printf("Invalid selection, please choose a number between" +
+                            " %s and %s\n", MIN_INPUT_VALUE, MAX_INPUT_VALUE);
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("Your entry is not a number, please try again");
+                System.out.println(e.getMessage());
             }
         }
     }
@@ -171,4 +228,14 @@ public class GeneralStore extends Location {
         return itemFound;
     }
 
+    public List<Ingredient> getCart() {
+        return cart;
+    }
+
+    public static void main(String[] args) {
+        GeneralStore test = new GeneralStore();
+        test.execute();
+
+
+    }
 }
