@@ -15,7 +15,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class StoryBoard {
-    private Scanner scanner = new Scanner(System.in);
+    private final Scanner scanner = new Scanner(System.in);
     Bakery baker = new Bakery();
     ButcherShop butcher = new ButcherShop();
     LiquorStore liquorStore = new LiquorStore();

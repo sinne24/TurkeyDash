@@ -14,4 +14,8 @@ public class Dish {
     void isComplete() {
 
     }
+
+    public List<Ingredient> getIngredients() {
+        return ingredients;
+    }
 }
