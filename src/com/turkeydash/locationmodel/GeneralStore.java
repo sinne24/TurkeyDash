@@ -74,6 +74,7 @@ public class GeneralStore extends Location {
             case 5:
                 printItemList(getAisleItems(misc.getCategory()));
                 selectItems(misc.getCategory());
+                break;
             case 6:
                 continueToShop = false;
                 break;
