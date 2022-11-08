@@ -36,9 +36,9 @@ public enum Ingredient {
     PROSECCO("prosecco", 5, Category.SPIRITS),
     CLUB_SODA("club soda", 5, Category.REFRIDGERATED);
 
-    private String display;
-    private int value;
-    private Category category; //DRY_GOODS
+    private final String display;
+    private final int value;
+    private final Category category; //DRY_GOODS
 
     Ingredient(String display, int value, Category category) {
         this.display = display;

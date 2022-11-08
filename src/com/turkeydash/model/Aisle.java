@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Aisle {
-    private Category category;
+    private final Category category;
     List<Ingredient> ingredients = new ArrayList<>(); //ingredients that are DRY_GOODS for instance
 
     public Aisle(Category category) {
