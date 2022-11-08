@@ -5,6 +5,7 @@ import com.turkeydash.model.Ingredient;
 import com.turkeydash.model.Player;
 import com.turkeydash.storyboard.StoryBoard;
 
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,7 +15,7 @@ public class Home {
     private StoryBoard storyBoard = new StoryBoard();
     private Player player;
     private int points;
-
+    private String file;
 
 
     public void execute(Player player) {
@@ -30,7 +31,25 @@ public class Home {
     }
 
     private void celebrate() {
-    }
+
+            if(points == 60){
+                file = "data/celebration/Perfect.txt";
+                storyBoard.presentExpositionText(file);
+            }else if(points>=45 && points<=59){
+                file = "data/celebration/ScoreA.txt";
+                storyBoard.presentExpositionText(file);
+            }else if(points>=35 && points<=44){
+                file = "data/celebration/ScoreB.txt";
+                storyBoard.presentExpositionText(file);
+            }else if(points>=25 && points<=34){
+                file = "data/celebration/ScoreC.txt";
+                storyBoard.presentExpositionText(file);
+            }else{
+                file = "data/celebration/ScoreD.txt";
+                storyBoard.presentExpositionText(file);
+            }
+        }
+
 
     private void presentScore() {
     }

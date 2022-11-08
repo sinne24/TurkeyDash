@@ -174,7 +174,7 @@ public class StoryBoard {
         return selection;
     }
 
-    void presentExpositionText(String file){
+    public void presentExpositionText(String file){
         try{
             String exposition = Files.readString(Paths.get(file)); //Java 11. Path.of()
             System.out.println(exposition);
