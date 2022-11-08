@@ -7,7 +7,6 @@ import java.util.List;
 
 public class Location {
     Dish dish;
-    Proprietor proprietor;
 
     List<Dish> getDishes(){
         return null;
@@ -16,6 +15,4 @@ public class Location {
     public List<String> getDishNames(){
         return null;
     }
-
-
 }

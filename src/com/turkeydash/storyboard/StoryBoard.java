@@ -104,6 +104,7 @@ public class StoryBoard {
                 }
             }
         }
+        presentExpositionText(file);
         return selection;
     }
 
@@ -132,6 +133,7 @@ public class StoryBoard {
                 }
             }
         }
+        presentExpositionText(file);
         return selection;
     }
 
@@ -160,6 +162,7 @@ public class StoryBoard {
                 }
             }
         }
+        presentExpositionText(file);
         return selection;
     }
 
