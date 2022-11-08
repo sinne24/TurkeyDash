@@ -31,6 +31,7 @@ public class StoryBoard {
 
     public boolean readyToContinue() {
         boolean readyToContinue = false;
+        validInput = false;
 
         while (!validInput) {
             System.out.print("If so, please type 'Y' for yes. If not, " +
@@ -38,7 +39,7 @@ public class StoryBoard {
             input = scanner.nextLine().trim().toUpperCase();
             if (input.matches("Y|N")) {
                 validInput = true;
-                readyToContinue = ("Y".equals(input)) ? (readyToContinue = true) : (readyToContinue = false);
+                readyToContinue = ("Y".equalsIgnoreCase(input)) ? (readyToContinue = true) : (readyToContinue = false);
             }
         }
         return readyToContinue;

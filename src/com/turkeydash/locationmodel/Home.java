@@ -42,6 +42,22 @@ public class Home {
     }
 
     private void guestReactions() {
+        List<Dish> dishes = player.getMenu();
+        int matches = 0 ;
+
+        for (Dish dish: dishes) {
+            Dish ingToCompare = dish;
+            ingToCompare.getIngredients().retainAll( ingredientsToTally );
+            matches = ingToCompare.getIngredients().size();
+
+            if(matches == 3){
+                System.out.println("Wow! This " + dish.getDishName() + " is incredible!");
+            } else if(matches == 2){
+                System.out.println("Hmm, This " + dish.getDishName() + " is good, but something's missing");
+            } else{
+                System.out.println("\"Pleh! This " + dish.getDishName() + " is AWFUL!\" ~ says Uncle Fester.");
+            }
+        }
     }
 
     public int tallyPoints() {
