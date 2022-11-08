@@ -130,7 +130,7 @@ public class StoryBoard {
                     file = "data/recipes/GreenBeanCas.txt";
                 } else if (input.equals("S")) {
                     selection = new CandiedSweetPotatoes();
-                    file = "data/recipes/SweetPotatoFarmer.txt";
+                    file = "data/recipes/SweetPoFarmer.txt";
                 } else {
                     selection = new RoastedCorn();
                     file = "data/recipes/RoastedCorn.txt";

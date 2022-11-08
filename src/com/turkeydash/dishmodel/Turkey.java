@@ -20,6 +20,11 @@ public class Turkey extends Dish{
     }
 
     @Override
+    public List<Ingredient> getIngredients() {
+        return ingredients;
+    }
+
+    @Override
     public String getDishName(){
         return Turkey.class.getSimpleName();
     }

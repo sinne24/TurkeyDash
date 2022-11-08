@@ -17,6 +17,11 @@ public class AperolSpritz extends Dish {
     }
 
     @Override
+    public List<Ingredient> getIngredients() {
+        return ingredients;
+    }
+
+    @Override
     public String getDishName(){
         return AperolSpritz.class.getSimpleName();
     }
