@@ -68,4 +68,10 @@ public class TurkeyDashApp {
         System.out.println("Goodbye");
         System.exit(0);           // Scott --> tells the JVM to terminate
     }
+
+    public static void main(String[] args) {
+        GeneralStore test = new GeneralStore();
+        Player player = new Player();
+        test.execute(player);
+    }
 }

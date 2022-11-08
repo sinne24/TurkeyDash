@@ -13,7 +13,7 @@ import java.nio.file.Path;
 import java.util.*;
 
 public class GeneralStore extends Location {
-    private static final String generalStoreFilePath = "conf/generalStoreList";
+    private static final String generalStoreFilePath = "conf/generalStoreList.csv";
     private Obstacle obstacle;
     private final List<Ingredient> cart = new ArrayList<>();
     boolean continueToShop = true;
@@ -27,21 +27,11 @@ public class GeneralStore extends Location {
     private final Aisle spirits = new Aisle(Category.SPIRITS);
     private final Aisle misc = new Aisle(Category.MISC);
 
-
-    /*
-     * Player enters the store and is immediately asked which aisle they would like to visit.
-     * Player types in the aisle they want, and the screen flashes pulling up a list of ingredients
-     * in that aisle by Category. The player selects each item they think is necessary and adds it them
-     * to their basket for that aisle. They are prompt to either visit another aisle or checkout and
-     * leave the store. If they choose to leave the store it break the while loop and returns the user
-     * back to the main menu.
-     */
     public List<Ingredient> execute(Player player) {
 
         while (continueToShop) {
             generalStoreGuide();
-            int userChoice = scanner.nextInt();
-            decisionValidator(userChoice);
+            decisionValidator();
         };
         saveCartToBasket(player);
         return cart;
@@ -56,7 +46,7 @@ public class GeneralStore extends Location {
                           "   3. %s\n" +
                           "   4. %s\n" +
                           "   5. %s\n" +
-                          "   6. %s", produce, refrigerated, dryGoods, spirits, misc, checkoutLeave);
+                          "   6. %s\n", produce.getCategory(), refrigerated.getCategory(), dryGoods.getCategory(), spirits.getCategory(), misc.getCategory(), checkoutLeave);
     }
 
 
@@ -66,23 +56,24 @@ public class GeneralStore extends Location {
 
         switch (userChoice) {
             case 1:
-                getAisleItems(produce.getCategory());
+//                getAisleItems(produce.getCategory());
+                printItemList(getAisleItems(produce.getCategory()));
                 selectItems(produce.getCategory());
                 break;
             case 2:
-                getAisleItems(refrigerated.getCategory());
+                printItemList(getAisleItems(refrigerated.getCategory()));
                 selectItems(refrigerated.getCategory());
                 break;
             case 3:
-                getAisleItems(dryGoods.getCategory());
+                printItemList(getAisleItems(dryGoods.getCategory()));
                 selectItems(dryGoods.getCategory());
                 break;
             case 4:
-                getAisleItems(spirits.getCategory());
-                selectItems(dryGoods.getCategory());
+                printItemList(getAisleItems(spirits.getCategory()));
+                selectItems(spirits.getCategory());
                 break;
             case 5:
-                getAisleItems(misc.getCategory());
+                printItemList(getAisleItems(misc.getCategory()));
                 selectItems(misc.getCategory());
             case 6:
                 continueToShop = false;
@@ -90,10 +81,8 @@ public class GeneralStore extends Location {
         }
     }
 
-    // method that opens a .csv files, reads in lines, and returns a hashmap
-    // called by aisleMenu
-    private Map<String, Ingredient> getAisleItems(Category aisleChoice) {
-        Map<String, Ingredient> aisleMap = new HashMap<>();
+    private List<Ingredient> getAisleItems(Category aisleChoice) {
+          List<Ingredient> ingredientArrayList = new ArrayList<>();
 
         try {
             List<String> lines = Files.readAllLines(Path.of(generalStoreFilePath));
@@ -101,71 +90,85 @@ public class GeneralStore extends Location {
             for (String line : lines) {
                 String[] tokens = line.split(",");
                 String category = String.valueOf(tokens[0]);
-                String itemName = tokens[1].toLowerCase();
-//                Category ingredientCategory = Category.valueOf(category).;
+                String itemName = tokens[1].toUpperCase();
+
                 Ingredient ingredientItem = Ingredient.valueOf(itemName);
-                if (category.equalsIgnoreCase(String.valueOf(aisleChoice))) {
-                    aisleMap.putIfAbsent(category, ingredientItem);
+
+
+                if (category.equals(aisleChoice.toString())) {
+//                    aisleMap.put(category, ingredientItem);
+                    ingredientArrayList.add(ingredientItem);
                 }
 
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return aisleMap;
+
+        return ingredientArrayList;
+    }
+
+    private void printItemList(List<Ingredient> aisleList) {
+        System.out.println("This aisle has:");
+        for (Ingredient item : aisleList) {
+            System.out.println(item);
+        }
     }
 
     private void selectItems(Category aisleCategory) {
         boolean continueAddingItems = true;
-        String itemSelection = scanner.nextLine();
-
 
         while (continueAddingItems) {
-            System.out.println("Please type what you would you like.");
+            System.out.println("Please type what you would you like (use underscores for spaces).");
+            String itemSelection = scanner.next().toUpperCase();
+
             // if it exists it can be added to the List
-            if (itemValidator(itemSelection, aisleCategory)) {
+            if (itemValidator(itemSelection.toUpperCase(), getAisleItems(aisleCategory))) {
+
                 // selects the enum ingredient type that matches the validated input
                 Ingredient selectedIngredient = Ingredient.valueOf(itemSelection);
                 cart.add(selectedIngredient);
-                System.out.printf("%s has been added to your cart!", itemSelection);
-            }
+                System.out.printf("%s has been added to your cart!\n", itemSelection);
 
-            System.out.println("Would you like to add another item?");
-            String addMoreItems = scanner.nextLine().trim().toUpperCase();
+                System.out.println("Would you like to add another item? (Y/N)");
+                String addMoreItems = scanner.next().trim().toUpperCase();
 
-            // selection of "N" breaks the loop and ends the method
-            if (addMoreItems.matches("N")) {
-               continueAddingItems = false;
+                if (addMoreItems.matches("N")) {
+                    continueAddingItems = false;
+                }
+            } else {
+                System.out.println("Item not found. Please try something else.");
+                scanner.nextLine();
             }
         }
     }
 
     // COME BACK TO THIS
-    public void decisionValidator(int userChoice) {
+    public void decisionValidator() {
         boolean validInput = false;
         while (!validInput) {
-            if (userChoice >= MIN_INPUT_VALUE && userChoice <= MAX_INPUT_VALUE) {
+            System.out.print("Option: ");
+            int input = scanner.nextInt();
+            if (input >= MIN_INPUT_VALUE && input <= MAX_INPUT_VALUE) {
+                System.out.println();
                 validInput = true;
-                decisionHandler(userChoice);
+                decisionHandler(input);
             } else {
                 System.out.printf("Invalid selection, please choose a number between" +
                         " %s and %s\n", MIN_INPUT_VALUE, MAX_INPUT_VALUE);
             }
         }
-        decisionHandler(userChoice);
     }
 
-    public boolean itemValidator(String userInput, Category itemCategory) {
-        boolean validInput = false;
-        Map<String, Ingredient> aisleMap = getAisleItems(itemCategory);
+    public boolean itemValidator(String userInput, List<Ingredient> aisleList) {
+        boolean itemFound = false;
 
-        while (!validInput) {
-            if (userInput.matches(String.valueOf(aisleMap.values()))) {
-                validInput = true;
+            for (Ingredient item : aisleList) {
+                if (userInput.equals(item.toString())) {
+                    itemFound = true;
+                }
             }
-            System.out.println("Item not found. Please try something else.");
-        }
-        return validInput;
+        return itemFound;
     }
 
     private void saveCartToBasket(Player player) {
