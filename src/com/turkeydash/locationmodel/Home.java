@@ -21,7 +21,6 @@ public class Home {
         setPlayer(player);
         setIngredientsToTally(player.getBasket());
 
-        //TODO: begin Home operations
         tallyPoints();
         storyBoard.hostDinner();
         guestReactions();
@@ -76,11 +75,6 @@ public class Home {
 
     }
 
-
-    public List<Ingredient> getIngredientsToTally() {
-        return ingredientsToTally;
-    }
-
     public void setIngredientsToTally(List<Ingredient> ingredientsToTally) {
         this.ingredientsToTally = ingredientsToTally;
     }
@@ -91,19 +85,6 @@ public class Home {
 
     public void setScore(int score) {
         score = score;
-    }
-
-    public StoryBoard getStoryBoard() {
-
-        return storyBoard;
-    }
-
-    public void setStoryBoard(StoryBoard storyBoard) {
-        this.storyBoard = storyBoard;
-    }
-
-    public Player getPlayer() {
-        return player;
     }
 
     public void setPlayer(Player player) {
