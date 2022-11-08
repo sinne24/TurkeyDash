@@ -17,6 +17,11 @@ public class RoastedCorn extends Dish {
     void isComplete() {}
 
     @Override
+    public List<Ingredient> getIngredients() {
+        return ingredients;
+    }
+
+    @Override
     public String getDishName(){
         return RoastedCorn.class.getSimpleName();
     }

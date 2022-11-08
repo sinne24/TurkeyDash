@@ -17,6 +17,11 @@ public class GreenBeanCasserole extends Dish {
     void isComplete() {}
 
     @Override
+    public List<Ingredient> getIngredients() {
+        return ingredients;
+    }
+
+    @Override
     public String getDishName(){
         return GreenBeanCasserole.class.getSimpleName();
     }
