@@ -27,13 +27,12 @@ public class GeneralStore extends Location {
     private final Aisle spirits = new Aisle(Category.SPIRITS);
     private final Aisle misc = new Aisle(Category.MISC);
 
-    public List<Ingredient> execute(Player player) {
+    public List<Ingredient> execute() {
 
         while (continueToShop) {
             generalStoreGuide();
             decisionValidator();
         };
-        saveCartToBasket(player);
         return cart;
     }
 
@@ -170,11 +169,4 @@ public class GeneralStore extends Location {
             }
         return itemFound;
     }
-
-    private void saveCartToBasket(Player player) {
-        List<Ingredient> currentBasket = player.getBasket();
-        currentBasket.addAll(cart);
-        player.setBasket(currentBasket);
-    }
-
 }
