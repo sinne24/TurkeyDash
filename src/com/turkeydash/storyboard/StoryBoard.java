@@ -25,10 +25,8 @@ public class StoryBoard {
     String file;
 
     public void presentInstructions() {
-        //TODO: Create and read in csv instruction file
-        System.out.println("/////////////////////");
-        System.out.println("CSV instruction file");
-        System.out.println("/////////////////////");
+        file = "data/IntroInstructions.txt";
+        presentExpositionText(file);
     }
 
     public boolean readyToContinue() {
@@ -97,10 +95,13 @@ public class StoryBoard {
                 validInput = true;
                 if (input.equals("M")) {
                     selection = new MacAndCheese();
+                    file = "data/recipes/MacnCheeseBakery.txt";
                 } else if (input.equals("G")) {
                     selection = new GarlicBread();
+                    file = "data/recipes/GarlicBreadBakery.txt";
                 } else {
                     selection = new ApplePie();
+                    file = "data/recipes/ApplePieBakery.txt";
                 }
             }
         }
@@ -126,10 +127,13 @@ public class StoryBoard {
                 validInput = true;
                 if (input.equals("G")) {
                     selection = new GreenBeanCasserole();
+                    file = "data/recipes/GreenBeanCas.txt";
                 } else if (input.equals("S")) {
                     selection = new CandiedSweetPotatoes();
+                    file = "data/recipes/SweetPotatoFarmer.txt";
                 } else {
                     selection = new RoastedCorn();
+                    file = "data/recipes/RoastedCorn.txt";
                 }
             }
         }
@@ -155,10 +159,13 @@ public class StoryBoard {
                 validInput = true;
                 if (input.equals("S")) {
                     selection = new Sangria();
+                    file = "data/recipes/SangriaLiquor.txt";
                 } else if (input.equals("E")) {
                     selection = new Eggnog();
+                    file = "data/recipes/EggnogLiquor.txt";
                 } else {
                     selection = new AperolSpritz();
+                    file = "data/recipes/AperolSpritz.txt";
                 }
             }
         }
@@ -181,7 +188,6 @@ public class StoryBoard {
     }
 
     public void presentGeneralStore() {
-        Dish selection;
         //TODO: Create and read in general store file
     }
 
