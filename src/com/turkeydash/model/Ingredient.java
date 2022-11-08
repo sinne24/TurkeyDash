@@ -11,16 +11,16 @@ public enum Ingredient {
     PINEAPPLE("pineapple", 5, Category.PRODUCE),
     CLOVES("cloves", 5, Category.DRY_GOODS),
     FLOUR("flour", 5, Category.DRY_GOODS),
-    EGG("eggs", 5, Category.REFRIDGERATED),
-    MILK("milk", 5, Category.REFRIDGERATED),
+    EGG("eggs", 5, Category.REFRIGERATED),
+    MILK("milk", 5, Category.REFRIGERATED),
     CREAM_OF_MUSHROOM("cream of mushroom", 5, Category.MISC),
-    MARSHMALLOWS("marchmallows", 5, Category.DRY_GOODS),
+    MARSHMALLOWS("marshmallows", 5, Category.DRY_GOODS),
     BROWN_SUGAR("brown sugar", 5, Category.DRY_GOODS),
-    ORANGE_JUICE("orange juice", 5, Category.REFRIDGERATED),
+    ORANGE_JUICE("orange juice", 5, Category.REFRIGERATED),
     MAYONNAISE("mayonnaise", 5, Category.MISC),
-    BUTTER("butter", 5, Category.REFRIDGERATED),
+    BUTTER("butter", 5, Category.REFRIGERATED),
     SAVORY_SEASONING("savory seasonings (salt, pepper, old bay", 5, Category.DRY_GOODS),
-    CHEESE("cheese", 5, Category.REFRIDGERATED),
+    CHEESE("cheese", 5, Category.REFRIGERATED),
     FRIED_ONIONS("fried onions", 5, Category.MISC),
     BREADCRUMBS("breadcrumbs", 5, Category.DRY_GOODS),
     OLIVE_OIL("olive oil", 5, Category.MISC),
@@ -34,7 +34,7 @@ public enum Ingredient {
     RUM("rum", 5, Category.SPIRITS),
     APEROL("aperol", 5, Category.SPIRITS),
     PROSECCO("prosecco", 5, Category.SPIRITS),
-    CLUB_SODA("club soda", 5, Category.REFRIDGERATED);
+    CLUB_SODA("club soda", 5, Category.REFRIGERATED);
 
     private final String display;
     private final int value;
@@ -55,6 +55,7 @@ public enum Ingredient {
 //                .filter(ingredient -> ingredient.getCategory().equals(category);
         return null;
     }
+
 
     // OR you could think the other way,
     // that a Category has a List<Ingredient> as one of its properties

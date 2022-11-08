@@ -38,7 +38,7 @@ public class TurkeyDashApp {
 
         player.setMenu(dishes);
         storyBoard.presentGeneralStore();
-        player.setBasket(generalStore.execute());
+        player.setBasket(generalStore.execute(player));
 
         home.execute(player);
 
@@ -70,5 +70,11 @@ public class TurkeyDashApp {
         scanner.close();                // Scott --> closes the scanner
         System.out.println("Goodbye");
         System.exit(0);           // Scott --> tells the JVM to terminate
+    }
+
+    public static void main(String[] args) {
+        GeneralStore test = new GeneralStore();
+        Player player = new Player();
+        test.execute(player);
     }
 }

@@ -5,5 +5,11 @@ package com.turkeydash.model;
  */
 public enum Category {
     //TODO: confirm these with team
-    DRY_GOODS, REFRIDGERATED, SPIRITS, MISC, PRODUCE
+    DRY_GOODS("dry goods"), REFRIGERATED("refrigerated"), SPIRITS("spirits"), MISC("miscellaneous"), PRODUCE("produce");
+
+    private String display;
+
+    Category(String display) {
+        this.display = display;
+    }
 }

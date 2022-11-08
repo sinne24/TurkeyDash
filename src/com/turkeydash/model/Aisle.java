@@ -9,10 +9,14 @@ public class Aisle {
 
     public Aisle(Category category) {
         this.category = category;
-        this.ingredients = Ingredient.byCategory(category);
+//        this.ingredients = Ingredient.byCategory(category);
     }
 
     public List<Ingredient> getIngredients() {
         return ingredients;
+    }
+
+    public Category getCategory() {
+        return category;
     }
 }
