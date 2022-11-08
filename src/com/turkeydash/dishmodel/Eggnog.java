@@ -6,20 +6,17 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class Chicken extends Dish{
+public class Eggnog extends Dish {
     List<Ingredient> ingredients;
 
-    public Chicken() {
-        this.ingredients = new ArrayList<Ingredient>(Arrays.asList(Ingredient.FLOUR, Ingredient.EGG, Ingredient.MILK));
+    public Eggnog() {
+        this.ingredients = new ArrayList<Ingredient>(Arrays.asList(Ingredient.RUM, Ingredient.CINNAMON, Ingredient.WHISKEY));
     }
-
     //TODO: map list of associated ingredients to this class
-    void isComplete() {
-
-    }
+    void isComplete() {}
 
     @Override
     public String getDishName(){
-        return Chicken.class.getSimpleName();
+        return Eggnog.class.getSimpleName();
     }
 }

@@ -26,7 +26,11 @@ public class ButcherShop extends Location{
     }
 
     @Override
-    public List<Dish> getDishes() {
-        return meats;
+    public List<String> getDishNames() {
+        List<String> meatStrings = new ArrayList<>();
+        for (Dish meat: meats) {
+            meatStrings.add(meat.getDishName());
+        }
+        return meatStrings;
     }
 }

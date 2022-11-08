@@ -21,6 +21,7 @@ public enum Ingredient {
     BUTTER("butter", 5, Category.REFRIGERATED),
     SAVORY_SEASONING("savory seasonings (salt, pepper, old bay", 5, Category.DRY_GOODS),
     CHEESE("cheese", 5, Category.REFRIGERATED),
+    FRIED_ONIONS("fried onions", 5, Category.MISC),
     BREADCRUMBS("breadcrumbs", 5, Category.DRY_GOODS),
     OLIVE_OIL("olive oil", 5, Category.MISC),
     GARLIC("garlic", 5, Category.PRODUCE),
@@ -28,15 +29,16 @@ public enum Ingredient {
     CINNAMON("cinnamon", 5, Category.DRY_GOODS),
     APPLES("apples", 5, Category.PRODUCE),
     ORANGES("oranges", 5, Category.PRODUCE),
+    SUGAR("sugar", 5, Category.DRY_GOODS),
     WHISKEY("whiskey", 5, Category.SPIRITS),
     RUM("rum", 5, Category.SPIRITS),
     APEROL("aperol", 5, Category.SPIRITS),
     PROSECCO("prosecco", 5, Category.SPIRITS),
     CLUB_SODA("club soda", 5, Category.REFRIGERATED);
 
-    private String display;
-    private int value;
-    private Category category; //DRY_GOODS
+    private final String display;
+    private final int value;
+    private final Category category; //DRY_GOODS
 
     Ingredient(String display, int value, Category category) {
         this.display = display;
@@ -44,14 +46,16 @@ public enum Ingredient {
         this.category = category;
     }
 
-//    public static List<Ingredient> byCategory(Category category) {
-//        // for-each over all the values() (all the Ingredient objects)
-//        // and return all the ones that have the specified category
-//        // java.util.stream can help here
-//
+    public static List<Ingredient> byCategory(Category category) {
+        // for-each over all the values() (all the Ingredient objects)
+        // and return all the ones that have the specified category
+        // java.util.stream can help here
+
 //        return Arrays.asList(Ingredient.values()).stream()
 //                .filter(ingredient -> ingredient.getCategory().equals(category);
-//    }
+        return null;
+    }
+
 
     // OR you could think the other way,
     // that a Category has a List<Ingredient> as one of its properties

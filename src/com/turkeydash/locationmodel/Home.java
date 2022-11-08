@@ -1,16 +1,20 @@
 package com.turkeydash.locationmodel;
 
+import com.turkeydash.dishmodel.Dish;
 import com.turkeydash.model.Ingredient;
 import com.turkeydash.model.Player;
 import com.turkeydash.storyboard.StoryBoard;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Home {
     private List<Ingredient> ingredientsToTally;
-    private int Score;
+    private int score;
     private StoryBoard storyBoard;
     private Player player;
+    private int points;
+
 
 
     public void execute(Player player) {
@@ -26,10 +30,6 @@ public class Home {
         celebrate();
     }
 
-//    private void packagePlayer(Player player){
-//       this.player = player;
-//    }
-
     private void celebrate() {
     }
 
@@ -37,13 +37,29 @@ public class Home {
     }
 
     private void addBonusPoints() {
+        int bonusPoints = 0 ;
+      setScore(points + bonusPoints);
     }
 
     private void guestReactions() {
     }
 
-    private void tallyPoints() {
+    public int tallyPoints() {
+        points = 5;
+        int matches = 0 ;
+
+        List<Ingredient> menuIngredients = new ArrayList<>();
+        for (Dish dish: player.getMenu()) {
+            menuIngredients.addAll(dish.getIngredients());
+        }
+        menuIngredients.retainAll( ingredientsToTally );
+        matches = menuIngredients.size();
+        points *= matches;
+
+        return points;
+
     }
+
 
     public List<Ingredient> getIngredientsToTally() {
         return ingredientsToTally;
@@ -54,14 +70,15 @@ public class Home {
     }
 
     public int getScore() {
-        return Score;
+        return score;
     }
 
     public void setScore(int score) {
-        Score = score;
+        score = score;
     }
 
     public StoryBoard getStoryBoard() {
+
         return storyBoard;
     }
 

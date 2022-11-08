@@ -1,17 +1,37 @@
 package com.turkeydash.locationmodel;
 
-import com.turkeydash.dishmodel.Dish;
-import com.turkeydash.model.Proprietor;
+import com.turkeydash.dishmodel.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class LiquorStore extends Location{
-    Dish dish;
-    Proprietor proprietor;
+    Eggnog eggnog;
+    AperolSpritz aperolSpritz;
+    Sangria sangria;
+    List<Dish> drinks;
+
+    public LiquorStore() {
+        this.eggnog = new Eggnog();
+        this.aperolSpritz = new AperolSpritz();
+        this.sangria = new Sangria();
+        drinks = new ArrayList<>();
+        drinks.add(eggnog);
+        drinks.add(aperolSpritz);
+        drinks.add(sangria);
+    }
 
     @Override
     public List<Dish> getDishes() {
-        return null;
+        return drinks;
     }
 
+    @Override
+    public List<String> getDishNames() {
+        List<String> drinkStrings = new ArrayList<>();
+        for (Dish drink: drinks) {
+            drinkStrings.add(drink.getDishName());
+        }
+        return drinkStrings;
+    }
 }
