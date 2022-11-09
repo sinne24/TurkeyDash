@@ -65,9 +65,8 @@ public class TurkeyDashApp {
     }
 
     private void startScreen() {
-        //TODO: populate and add welcome banner
-        System.out.println("S T A R T    S C R E E N");
-        System.out.println("-------------------------");
+        String file = "data/asciiArt/startBanner.txt";
+        storyBoard.presentExpositionText(file);
     }
 
     private void enterName() {

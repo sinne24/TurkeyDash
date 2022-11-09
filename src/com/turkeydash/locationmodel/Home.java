@@ -56,7 +56,7 @@ public class Home {
         }
 
     private void presentScore() {
-        System.out.println("\nYour dinner scored " + score + " points.");
+        System.out.println("\nWith bonus points your dinner scored " + score + " points.");
     }
 
     private void guestReactions() {
@@ -77,7 +77,7 @@ public class Home {
                 System.out.println("\"Pleh! This " + dish.getDishName() + " is AWFUL!\" ~ says Uncle Fester.");
             }
         }
-        System.out.println();
+        System.out.println("\nSo far your dinner scores " + points + " points\n");
         commentOnFavoriteDishesAndAddBonusPoints(dishes);
     }
 
@@ -85,14 +85,16 @@ public class Home {
         for (Dish dish: dishes) {
             if(dish.getDishName().equalsIgnoreCase(Turkey.class.getSimpleName())){
                 score += bonus;
-                System.out.println("Hey! you made " + dish.getDishName() + "! That's Aunt Martha's favorite!");
+                System.out.println("Hey! you made " + dish.getDishName() + "! That's Aunt Martha's favorite! " +
+                        "(You earned 10 bonus points!)");
             } else if(dish.getDishName().equalsIgnoreCase(CandiedSweetPotatoes.class.getSimpleName())){
                 score += bonus;
                 System.out.println("*Uncle Fester groans with delight* \"I'm so glad you made sweet potatoes, " +
-                        "however they may taste. They're my favorite.\"" );
+                        "however they may taste. They're my favorite.\" (You earned 10 bonus points!)" );
             } else if (dish.getDishName().equalsIgnoreCase(Sangria.class.getSimpleName())){
                 score += bonus;
-                System.out.println("The Sangria is flowing freely. It seems that was a good choice.");
+                System.out.println("The Sangria is flowing freely. It seems that was a good choice. " +
+                        "(You earned 10 bonus points!)");
             }
         }
     }
