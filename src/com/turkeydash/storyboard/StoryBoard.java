@@ -27,7 +27,7 @@ public class StoryBoard {
         file = "data/IntroInstructions.txt";
         presentExpositionText(file);
         System.out.println();
-        file = "data/gameInstructions.txt";
+        file = "data/gameIstructions.txt";
         presentExpositionText(file);
         System.out.println();
     }
