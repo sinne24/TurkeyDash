@@ -122,14 +122,14 @@ public class StoryBoard {
         System.out.println("Which of these would you like?");
 
         while (!validInput) {
-            System.out.println("Please enter 'G'- for green bean casserole, 'S'- for candied sweet potatoes, or 'C' for roasted corn. ");
+            System.out.println("Please enter 'G'- for green bean casserole, 'C'- for candied sweet potatoes, or 'R' for roasted corn. ");
             input = scanner.nextLine().trim().toUpperCase();
-            if (input.matches("G|S|C")) {
+            if (input.matches("G|C|R")) {
                 validInput = true;
                 if (input.equals("G")) {
                     selection = new GreenBeanCasserole();
                     file = "data/recipes/GreenBeanCas.txt";
-                } else if (input.equals("S")) {
+                } else if (input.equals("C")) {
                     selection = new CandiedSweetPotatoes();
                     file = "data/recipes/SweetPoFarmer.txt";
                 } else {

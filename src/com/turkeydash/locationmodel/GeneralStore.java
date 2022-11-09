@@ -185,10 +185,9 @@ public class GeneralStore extends Location {
             }
             checkCart();
             System.out.println("Remove anything else? (Y/N)");
-            String removeMore = scanner.next();
+            String removeMore = scanner.next().toUpperCase();
             if (removeMore.matches("N")) {
                 finishedUpdating = true;
-                break;
             } else if(removeMore.matches("Y")) {
                 System.out.println("Okay, what else do you want to remove?");
             }
