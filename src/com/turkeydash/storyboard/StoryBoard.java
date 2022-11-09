@@ -5,7 +5,6 @@ import com.turkeydash.locationmodel.Bakery;
 import com.turkeydash.locationmodel.ButcherShop;
 import com.turkeydash.locationmodel.FarmersMarket;
 import com.turkeydash.locationmodel.LiquorStore;
-import com.turkeydash.model.Ingredient;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -27,6 +26,10 @@ public class StoryBoard {
     public void presentInstructions() {
         file = "data/IntroInstructions.txt";
         presentExpositionText(file);
+        System.out.println();
+        file = "data/gameIstructions.txt";
+        presentExpositionText(file);
+        System.out.println();
     }
 
     public boolean readyToContinue() {
@@ -42,6 +45,7 @@ public class StoryBoard {
                 readyToContinue = ("Y".equalsIgnoreCase(input)) ? (readyToContinue = true) : (readyToContinue = false);
             }
         }
+        System.out.println();
         return readyToContinue;
     }
 
@@ -75,7 +79,6 @@ public class StoryBoard {
         }
         presentExpositionText(file);
         return selection;
-
     }
 
     public Dish presentBakery() {
@@ -181,7 +184,6 @@ public class StoryBoard {
         } catch (IOException e){
             e.printStackTrace();
         }
-
     }
 
     private static void dump(Collection<?> collection) {
@@ -189,7 +191,9 @@ public class StoryBoard {
     }
 
     public void presentGeneralStore() {
-        //TODO: Create and read in general store file
+        System.out.println();
+        file = "data/locations/presentGeneralStore.txt";
+        presentExpositionText(file);
     }
 
     public void hostDinner() {
