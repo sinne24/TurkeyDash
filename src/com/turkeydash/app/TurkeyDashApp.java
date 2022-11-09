@@ -57,7 +57,7 @@ public class TurkeyDashApp {
     }
 
     private boolean playAgain() {
-        System.out.println("Would you like to play again?");
+        System.out.println("\nWould you like to play again?");
         readyToContinue = storyBoard.readyToContinue();
         if(!readyToContinue){
             play = false;
