@@ -1,13 +1,8 @@
-
-
-
   ___                 _                           _     _
  |_ _|  _ __    ___  | |_   _ __   _   _    ___  | |_  (_)   ___    _ __    ___
   | |  | '_ \  / __| | __| | '__| | | | |  / __| | __| | |  / _ \  | '_ \  / __|
   | |  | | | | \__ \ | |_  | |    | |_| | | (__  | |_  | | | (_) | | | | | \__ \
  |___| |_| |_| |___/  \__| |_|     \__,_|  \___|  \__| |_|  \___/  |_| |_| |___/
-
-
 
 You will stop at the Butcher Shop, Farmers Market, Bakery, and Liquor Store to choose the main dishes for dinner.
 The store owners will give you three ingredients to complete the recipe. The goal is to remember all the ingredients.
