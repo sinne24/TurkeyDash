@@ -6,10 +6,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class LiquorStore extends Location{
-    Eggnog eggnog;
-    AperolSpritz aperolSpritz;
-    Sangria sangria;
-    List<Dish> drinks;
+    private final Eggnog eggnog;
+    private final AperolSpritz aperolSpritz;
+    private final Sangria sangria;
+    private final List<Dish> drinks;
 
     public LiquorStore() {
         this.eggnog = new Eggnog();

@@ -5,14 +5,10 @@ import com.turkeydash.model.Ingredient;
 import java.util.List;
 
 public class Dish {
-    List<Ingredient> ingredients;
+    private List<Ingredient> ingredients;
 
     public String getDishName(){
         return "dish name";
-    }
-
-    void isComplete() {
-
     }
 
     public List<Ingredient> getIngredients() {

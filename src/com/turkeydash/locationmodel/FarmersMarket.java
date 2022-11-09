@@ -5,12 +5,11 @@ import com.turkeydash.dishmodel.*;
 import java.util.ArrayList;
 import java.util.List;
 
-
 public class FarmersMarket extends Location{
-    GreenBeanCasserole greenBeanCasserole;
-    RoastedCorn corn;
-    CandiedSweetPotatoes candiedSweetPotatoes;
-    List<Dish> vegetables;
+    private final GreenBeanCasserole greenBeanCasserole;
+    private final RoastedCorn corn;
+    private final CandiedSweetPotatoes candiedSweetPotatoes;
+    private final List<Dish> vegetables;
 
     public FarmersMarket() {
         this.greenBeanCasserole = new GreenBeanCasserole();

@@ -13,16 +13,14 @@ import java.util.List;
 import java.util.Scanner;
 
 public class TurkeyDashApp {
-    // Maybe we can implement a Scanner class that gets the same Scanner in several places instead of creating multiple
-    // instances that we have to go back and close.
-    private final Scanner scanner = new Scanner(System.in);
     private static boolean readyToContinue = false;
     private static boolean play = true;
-    GeneralStore generalStore = new GeneralStore();
-    Player player = new Player();
-    Home home = new Home();
-    List<Dish> dishes = new ArrayList<>();
-    StoryBoard storyBoard = new StoryBoard();
+    private final Scanner scanner = new Scanner(System.in);
+    private final GeneralStore generalStore = new GeneralStore();
+    private Player player = new Player();
+    private Home home = new Home();
+    private List<Dish> dishes = new ArrayList<>();
+    private StoryBoard storyBoard = new StoryBoard();
 
     public void execute() {
         startScreen();
@@ -80,8 +78,8 @@ public class TurkeyDashApp {
     }
 
     public void exit(){
-        scanner.close();                // Scott --> closes the scanner
+        scanner.close();
         System.out.println("Goodbye");
-        System.exit(0);           // Scott --> tells the JVM to terminate
+        System.exit(0);
     }
 }

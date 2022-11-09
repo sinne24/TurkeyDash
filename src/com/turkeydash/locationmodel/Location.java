@@ -1,12 +1,12 @@
 package com.turkeydash.locationmodel;
 
 import com.turkeydash.dishmodel.Dish;
-import com.turkeydash.model.Proprietor;
 
 import java.util.List;
 
 public class Location {
-    Dish dish;
+    private Dish dish;
+    private List <Dish> dishes;
 
     List<Dish> getDishes(){
         return null;

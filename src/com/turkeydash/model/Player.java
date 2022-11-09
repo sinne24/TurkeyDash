@@ -6,10 +6,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Player {
-    String name;
-    List<Dish> menu;
-    List<Ingredient> basket;
-    int points;
+    private String name;
+    private List<Dish> menu;
+    private List<Ingredient> basket;
+    private int points;
 
     public Player() {
         this.name = "";
@@ -47,11 +47,4 @@ public class Player {
         this.basket = basket;
     }
 
-    public int getPoints() {
-        return points;
-    }
-
-    public void setPoints(int points) {
-        this.points = points;
-    }
 }

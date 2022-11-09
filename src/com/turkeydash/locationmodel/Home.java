@@ -14,7 +14,6 @@ import java.util.Arrays;
 import java.util.List;
 
 public class Home {
-//    private final List<Dish> favorites = new ArrayList<Dish>(Arrays.asList(new Turkey(), new CandiedSweetPotatoes(), new Sangria()));
     private final int bonus = 10;
     private List<Ingredient> ingredientsToTally;
     private int score;
@@ -22,7 +21,6 @@ public class Home {
     private Player player;
     private int points;
     private String file;
-
 
     public void execute(Player player) {
         setPlayer(player);
@@ -117,14 +115,6 @@ public class Home {
 
     public void setIngredientsToTally(List<Ingredient> ingredientsToTally) {
         this.ingredientsToTally = ingredientsToTally;
-    }
-
-    public int getScore() {
-        return score;
-    }
-
-    public void setScore(int score) {
-        score = score;
     }
 
     public void setPlayer(Player player) {
