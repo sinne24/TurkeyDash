@@ -1,5 +1,6 @@
 package com.turkeydash.app;
 
+import com.apps.util.Console;
 import com.turkeydash.locationmodel.GeneralStore;
 import com.turkeydash.locationmodel.Home;
 import com.turkeydash.dishmodel.Dish;
@@ -28,6 +29,8 @@ public class TurkeyDashApp {
         storyBoard.presentInstructions();
         System.out.println("Are you ready to continue? ");
         readyToContinue = storyBoard.readyToContinue();
+        Console.pause(1);
+        Console.clear();
         if(!readyToContinue){
             exit();
         }
@@ -36,13 +39,23 @@ public class TurkeyDashApp {
                 emptyPlayerHoldings();
             }
             dishes.add(storyBoard.presentButcher());
+            Console.pause(5);
+            Console.clear();
             dishes.add(storyBoard.presentBakery());
+            Console.pause(5);
+            Console.clear();
             dishes.add(storyBoard.presentFarmersMarket());
+            Console.pause(5);
+            Console.clear();
             dishes.add(storyBoard.presentLiquorStore());
+            Console.pause(5);
+            Console.clear();
 
             player.setMenu(dishes);
             storyBoard.presentGeneralStore();
             player.setBasket(generalStore.execute());
+            Console.pause(2);
+            Console.clear();
 
             home.execute(player);
 
@@ -71,7 +84,7 @@ public class TurkeyDashApp {
 
     private void enterName() {
         player = new Player();
-        System.out.println("Please enter you name: ");
+        System.out.println("Please enter your name: ");
         player.setName(scanner.nextLine().trim());
         System.out.println("Welcome " + player.getName() + "!");
     }
