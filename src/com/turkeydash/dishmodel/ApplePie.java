@@ -7,14 +7,11 @@ import java.util.Arrays;
 import java.util.List;
 
 public class ApplePie extends Dish {
-    List<Ingredient> ingredients;
+    private final List<Ingredient> ingredients;
 
     public ApplePie() {
         this.ingredients = new ArrayList<Ingredient>(Arrays.asList(Ingredient.APPLES, Ingredient.NUTMEG, Ingredient.CINNAMON));
     }
-
-    //TODO: map list of associated ingredients to this class
-    void isComplete() {}
 
     @Override
     public List<Ingredient> getIngredients() {

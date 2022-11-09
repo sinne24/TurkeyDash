@@ -8,15 +8,10 @@ import java.util.Arrays;
 import java.util.List;
 
 public class Turkey extends Dish{
-    List<Ingredient> ingredients;
+    private final List<Ingredient> ingredients;
 
     public Turkey() {
         this.ingredients = new ArrayList<Ingredient>(Arrays.asList(Ingredient.STUFFING, Ingredient.CRANBERRIES, Ingredient.BEER));
-    }
-
-    //TODO: map list of associated ingredients to this class
-    void isComplete() {
-
     }
 
     @Override

@@ -16,13 +16,13 @@ import java.util.Scanner;
 
 public class StoryBoard {
     private final Scanner scanner = new Scanner(System.in);
-    Bakery baker = new Bakery();
-    ButcherShop butcher = new ButcherShop();
-    LiquorStore liquorStore = new LiquorStore();
-    FarmersMarket farmersMarket = new FarmersMarket();
-    boolean validInput = false;
-    String input;
-    String file;
+    private Bakery baker = new Bakery();
+    private ButcherShop butcher = new ButcherShop();
+    private LiquorStore liquorStore = new LiquorStore();
+    private FarmersMarket farmersMarket = new FarmersMarket();
+    private boolean validInput = false;
+    private String input;
+    private String file;
 
     public void presentInstructions() {
         file = "data/IntroInstructions.txt";

@@ -6,10 +6,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Bakery extends Location{
-    ApplePie applePie;
-    MacAndCheese macAndCheese;
-    GarlicBread garlicBread;
-    List<Dish> grains;
+    private final ApplePie applePie;
+    private final MacAndCheese macAndCheese;
+    private final GarlicBread garlicBread;
+    private final List<Dish> grains;
 
     public Bakery() {
         this.applePie = new ApplePie();

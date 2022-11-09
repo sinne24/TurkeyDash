@@ -7,15 +7,10 @@ import java.util.Arrays;
 import java.util.List;
 
 public class Chicken extends Dish{
-    List<Ingredient> ingredients;
+    private final List<Ingredient> ingredients;
 
     public Chicken() {
         this.ingredients = new ArrayList<Ingredient>(Arrays.asList(Ingredient.FLOUR, Ingredient.EGG, Ingredient.MILK));
-    }
-
-    //TODO: map list of associated ingredients to this class
-    void isComplete() {
-
     }
 
     @Override

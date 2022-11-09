@@ -7,13 +7,10 @@ import java.util.Arrays;
 import java.util.List;
 
 public class AperolSpritz extends Dish {
-    List<Ingredient> ingredients;
+    private final List<Ingredient> ingredients;
 
     public AperolSpritz() {
         this.ingredients = new ArrayList<Ingredient>(Arrays.asList(Ingredient.PROSECCO, Ingredient.APEROL, Ingredient.CLUB_SODA));
-    }
-
-    void isComplete() {
     }
 
     @Override

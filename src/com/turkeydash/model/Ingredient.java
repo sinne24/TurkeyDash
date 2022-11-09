@@ -38,27 +38,13 @@ public enum Ingredient {
 
     private final String display;
     private final int value;
-    private final Category category; //DRY_GOODS
+    private final Category category;
 
     Ingredient(String display, int value, Category category) {
         this.display = display;
         this.value = value;
         this.category = category;
     }
-
-    public static List<Ingredient> byCategory(Category category) {
-        // for-each over all the values() (all the Ingredient objects)
-        // and return all the ones that have the specified category
-        // java.util.stream can help here
-
-//        return Arrays.asList(Ingredient.values()).stream()
-//                .filter(ingredient -> ingredient.getCategory().equals(category);
-        return null;
-    }
-
-
-    // OR you could think the other way,
-    // that a Category has a List<Ingredient> as one of its properties
 
     private Category getCategory() {
         return this.category;

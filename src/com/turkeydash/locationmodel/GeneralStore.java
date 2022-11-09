@@ -3,7 +3,6 @@ package com.turkeydash.locationmodel;
 import com.turkeydash.model.Aisle;
 import com.turkeydash.model.Player;
 import com.turkeydash.model.Category;
-import com.turkeydash.storyboard.Obstacle;
 import com.turkeydash.model.Ingredient;
 
 
@@ -14,7 +13,6 @@ import java.util.*;
 
 public class GeneralStore extends Location {
     private static final String generalStoreFilePath = "conf/generalStoreList.csv";
-    private Obstacle obstacle;
     private final List<Ingredient> cart = new ArrayList<>();
     boolean continueToShop = true;
     private final int MIN_INPUT_VALUE = 1;
