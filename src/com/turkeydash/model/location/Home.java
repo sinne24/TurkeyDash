@@ -1,5 +1,6 @@
 package com.turkeydash.model.location;
 
+import com.apps.util.Console;
 import com.turkeydash.model.dish.Dish;
 import com.turkeydash.model.Ingredient;
 import com.turkeydash.model.Player;
@@ -24,8 +25,10 @@ public class Home {
 
         player.setPoints(tallyPoints());
         storyBoard.hostDinner();
+        Console.pause(2000);
         guestReactions();
         presentScore();
+        Console.pause(2000);
         celebrate();
     }
 

@@ -15,6 +15,7 @@ public class Player {
         this.name = "";
         this.menu = new ArrayList<>();
         this.basket = new ArrayList<>();
+        this.points = 0;
     }
 
     public void emptyPlayerItems(){
