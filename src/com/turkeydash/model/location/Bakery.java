@@ -1,20 +1,21 @@
-package com.turkeydash.locationmodel;
+package com.turkeydash.model.location;
 
-import com.turkeydash.dishmodel.*;
+import com.turkeydash.model.dish.Dish;
+import com.turkeydash.model.dish.Dishes;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class Bakery extends Location{
-    private final ApplePie applePie;
-    private final MacAndCheese macAndCheese;
-    private final GarlicBread garlicBread;
+    private final Dish applePie;
+    private final Dish macAndCheese;
+    private final Dish garlicBread;
     private final List<Dish> grains;
 
     public Bakery() {
-        this.applePie = new ApplePie();
-        this.macAndCheese = new MacAndCheese();
-        this.garlicBread = new GarlicBread();
+        this.applePie = Dishes.get("Apple Pie");
+        this.macAndCheese = Dishes.get("Mac n Cheese");
+        this.garlicBread = Dishes.get("Garlic Bread");
         grains = new ArrayList<>();
         grains.add(applePie);
         grains.add(macAndCheese);
@@ -30,7 +31,7 @@ public class Bakery extends Location{
     public List<String> getDishNames() {
         List<String> grainStrings = new ArrayList<>();
         for (Dish grain: grains) {
-            grainStrings.add(grain.getDishName());
+            grainStrings.add(grain.getName());
         }
         return grainStrings;
     }

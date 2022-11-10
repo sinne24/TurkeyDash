@@ -1,20 +1,21 @@
-package com.turkeydash.locationmodel;
+package com.turkeydash.model.location;
 
-import com.turkeydash.dishmodel.*;
+import com.turkeydash.model.dish.Dish;
+import com.turkeydash.model.dish.Dishes;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class FarmersMarket extends Location{
-    private final GreenBeanCasserole greenBeanCasserole;
-    private final RoastedCorn corn;
-    private final CandiedSweetPotatoes candiedSweetPotatoes;
+    private final Dish greenBeanCasserole;
+    private final Dish corn;
+    private final Dish candiedSweetPotatoes;
     private final List<Dish> vegetables;
 
     public FarmersMarket() {
-        this.greenBeanCasserole = new GreenBeanCasserole();
-        this.corn = new RoastedCorn();
-        this.candiedSweetPotatoes = new CandiedSweetPotatoes();
+        this.greenBeanCasserole = Dishes.get("Green Bean Casserole");
+        this.corn = Dishes.get("Roasted Corn");
+        this.candiedSweetPotatoes = Dishes.get("Candied Sweet Potato");
         vegetables = new ArrayList<>();
         vegetables.add(greenBeanCasserole);
         vegetables.add(corn);
@@ -30,7 +31,7 @@ public class FarmersMarket extends Location{
     public List<String> getDishNames() {
         List<String> grainStrings = new ArrayList<>();
         for (Dish vegetable: vegetables) {
-            grainStrings.add(vegetable.getDishName());
+            grainStrings.add(vegetable.getName());
         }
         return grainStrings;
     }

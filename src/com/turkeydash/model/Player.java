@@ -1,6 +1,6 @@
 package com.turkeydash.model;
 
-import com.turkeydash.dishmodel.Dish;
+import com.turkeydash.model.dish.Dish;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -47,4 +47,11 @@ public class Player {
         this.basket = basket;
     }
 
+    public void setPoints(int points) {
+        this.points = points;
+    }
+
+    public int getPoints() {
+        return points;
+    }
 }

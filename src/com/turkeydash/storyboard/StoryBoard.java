@@ -1,10 +1,10 @@
 package com.turkeydash.storyboard;
 
-import com.turkeydash.dishmodel.*;
-import com.turkeydash.locationmodel.Bakery;
-import com.turkeydash.locationmodel.ButcherShop;
-import com.turkeydash.locationmodel.FarmersMarket;
-import com.turkeydash.locationmodel.LiquorStore;
+import com.turkeydash.model.location.Bakery;
+import com.turkeydash.model.location.ButcherShop;
+import com.turkeydash.model.location.FarmersMarket;
+import com.turkeydash.model.location.LiquorStore;
+import com.turkeydash.model.dish.*;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -65,13 +65,13 @@ public class StoryBoard {
             if (input.matches("C|H|T")) {
                 validInput = true;
                 if (input.equals("C")) {
-                    selection = new Chicken();
+                    selection = Dishes.get("Chicken");
                     file = "data/recipes/ChickenButcher.txt";
                 } else if (input.equals("T")) {
-                    selection = new Turkey();
+                    selection = Dishes.get("Turkey");
                     file = "data/recipes/TurkeyButcher.txt";
                 } else {
-                    selection = new Ham();
+                    selection = Dishes.get("Ham");
                     file = "data/recipes/HamButcher.txt";
                 }
             }
@@ -97,13 +97,13 @@ public class StoryBoard {
             if (input.matches("M|G|A")) {
                 validInput = true;
                 if (input.equals("M")) {
-                    selection = new MacAndCheese();
+                    selection = Dishes.get("Mac n Cheese");
                     file = "data/recipes/MacnCheeseBakery.txt";
                 } else if (input.equals("G")) {
-                    selection = new GarlicBread();
+                    selection = Dishes.get("Garlic Bread");
                     file = "data/recipes/GarlicBreadBakery.txt";
                 } else {
-                    selection = new ApplePie();
+                    selection = Dishes.get("Apple Pie");
                     file = "data/recipes/ApplePieBakery.txt";
                 }
             }
@@ -129,13 +129,13 @@ public class StoryBoard {
             if (input.matches("G|C|R")) {
                 validInput = true;
                 if (input.equals("G")) {
-                    selection = new GreenBeanCasserole();
+                    selection = Dishes.get("Green Bean Casserole");
                     file = "data/recipes/GreenBeanCas.txt";
                 } else if (input.equals("C")) {
-                    selection = new CandiedSweetPotatoes();
+                    selection = Dishes.get("Candied Sweet Potato");
                     file = "data/recipes/SweetPoFarmer.txt";
                 } else {
-                    selection = new RoastedCorn();
+                    selection = Dishes.get("Roasted Corn");
                     file = "data/recipes/RoastedCorn.txt";
                 }
             }
@@ -161,13 +161,13 @@ public class StoryBoard {
             if (input.matches("S|E|A")) {
                 validInput = true;
                 if (input.equals("S")) {
-                    selection = new Sangria();
+                    selection = Dishes.get("Sangria");
                     file = "data/recipes/SangriaLiquor.txt";
                 } else if (input.equals("E")) {
-                    selection = new Eggnog();
+                    selection = Dishes.get("Eggnog");
                     file = "data/recipes/EggnogLiquor.txt";
                 } else {
-                    selection = new AperolSpritz();
+                    selection = Dishes.get("Aperol Spritz");
                     file = "data/recipes/AperolSpritz.txt";
                 }
             }

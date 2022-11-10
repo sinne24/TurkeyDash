@@ -1,18 +1,20 @@
 package com.turkeydash.app;
 
-import com.apps.util.Console;
-import com.turkeydash.locationmodel.GeneralStore;
-import com.turkeydash.locationmodel.Home;
-import com.turkeydash.dishmodel.Dish;
-import com.turkeydash.model.Ingredient;
+import com.turkeydash.model.location.GeneralStore;
+import com.turkeydash.model.location.Home;
+import com.turkeydash.model.dish.Dish;
 import com.turkeydash.model.Player;
 import com.turkeydash.storyboard.StoryBoard;
-import jdk.swing.interop.SwingInterOpUtils;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+/*
+ * TurkeyDashApp - Controller class of the program
+ *
+ * Here lies the framework of the overall playthrough.
+ */
 public class TurkeyDashApp {
     private static boolean readyToContinue = false;
     private static boolean play = true;
