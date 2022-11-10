@@ -1,9 +1,6 @@
-package com.turkeydash.locationmodel;
+package com.turkeydash.model.location;
 
-import com.turkeydash.dishmodel.CandiedSweetPotatoes;
-import com.turkeydash.dishmodel.Dish;
-import com.turkeydash.dishmodel.Sangria;
-import com.turkeydash.dishmodel.Turkey;
+import com.turkeydash.model.dish.Dish;
 import com.turkeydash.model.Ingredient;
 import com.turkeydash.model.Player;
 import com.turkeydash.storyboard.StoryBoard;
@@ -12,21 +9,20 @@ import com.turkeydash.storyboard.StoryBoard;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Home {
     private final int bonus = 10;
     private List<Ingredient> ingredientsToTally;
-    private int score;
     private StoryBoard storyBoard = new StoryBoard();
     private Player player;
-    private int points;
     private String file;
 
     public void execute(Player player) {
         setPlayer(player);
         setIngredientsToTally(player.getBasket());
 
-        tallyPoints();
+        player.setPoints(tallyPoints());
         storyBoard.hostDinner();
         guestReactions();
         presentScore();
@@ -34,8 +30,9 @@ public class Home {
     }
 
     private void celebrate() {
+            int points = player.getPoints();
 
-            if(score > 70){
+            if(points > 70){
                 System.out.println("Holy perfect meal! Everyone is exclaiming at your spread.");
             }else if(points>=60 && points<=70){
                 file = "data/celebration/Perfect.txt";
@@ -56,7 +53,7 @@ public class Home {
         }
 
     private void presentScore() {
-        System.out.println("\nWith bonus points your dinner scored " + score + " points.");
+        System.out.println("\nWith bonus points your dinner scored " + player.getPoints() + " points.");
     }
 
     private void guestReactions() {
@@ -66,33 +63,35 @@ public class Home {
         System.out.println();
         for (Dish dish: dishes) {
             Dish ingToCompare = dish;
-            ingToCompare.getIngredients().retainAll( ingredientsToTally );
-            matches = ingToCompare.getIngredients().size();
+            matches = ingToCompare.getIngredients().stream()
+                    .filter(ingredientsToTally::contains)
+                    .collect(Collectors
+                            .toList()).size();
 
             if(matches == 3){
-                System.out.println("Wow! This " + dish.getDishName() + " is incredible!");
+                System.out.println("Wow! This " + dish.getName() + " is incredible!");
             } else if(matches == 2){
-                System.out.println("Hmm, This " + dish.getDishName() + " is good, but something's missing");
+                System.out.println("Hmm, This " + dish.getName() + " is good, but something's missing");
             } else{
-                System.out.println("\"Pleh! This " + dish.getDishName() + " is AWFUL!\" ~ says Uncle Fester.");
+                System.out.println("\"Pleh! This " + dish.getName() + " is AWFUL!\" ~ says Uncle Fester.");
             }
         }
-        System.out.println("\nSo far your dinner scores " + points + " points\n");
+        System.out.println("\nSo far your dinner scores " + player.getPoints() + " points\n");
         commentOnFavoriteDishesAndAddBonusPoints(dishes);
     }
 
     private void commentOnFavoriteDishesAndAddBonusPoints(List<Dish> dishes) {
         for (Dish dish: dishes) {
-            if(dish.getDishName().equalsIgnoreCase(Turkey.class.getSimpleName())){
-                score += bonus;
-                System.out.println("Hey! you made " + dish.getDishName() + "! That's Aunt Martha's favorite! " +
+            if(dish.getName().equalsIgnoreCase("Turkey")){
+                player.setPoints(player.getPoints() + bonus);
+                System.out.println("Hey! you made " + dish.getName() + "! That's Aunt Martha's favorite! " +
                         "(You earned 10 bonus points!)");
-            } else if(dish.getDishName().equalsIgnoreCase(CandiedSweetPotatoes.class.getSimpleName())){
-                score += bonus;
+            } else if(dish.getName().equalsIgnoreCase("Candied Sweet Potato")){
+                player.setPoints(player.getPoints() + bonus);
                 System.out.println("*Uncle Fester groans with delight* \"I'm so glad you made sweet potatoes, " +
                         "however they may taste. They're my favorite.\" (You earned 10 bonus points!)" );
-            } else if (dish.getDishName().equalsIgnoreCase(Sangria.class.getSimpleName())){
-                score += bonus;
+            } else if (dish.getName().equalsIgnoreCase("Sangria")){
+                player.setPoints(player.getPoints() + bonus);
                 System.out.println("The Sangria is flowing freely. It seems that was a good choice. " +
                         "(You earned 10 bonus points!)");
             }
@@ -100,7 +99,7 @@ public class Home {
     }
 
     public int tallyPoints() {
-        points = 5;
+        int points = 5;
         int matches = 0 ;
 
         List<Ingredient> menuIngredients = new ArrayList<>();

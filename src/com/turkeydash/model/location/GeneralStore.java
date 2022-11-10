@@ -1,7 +1,6 @@
-package com.turkeydash.locationmodel;
+package com.turkeydash.model.location;
 
 import com.turkeydash.model.Aisle;
-import com.turkeydash.model.Player;
 import com.turkeydash.model.Category;
 import com.turkeydash.model.Ingredient;
 
@@ -50,9 +49,6 @@ public class GeneralStore extends Location {
                                         spirits.getCategory(), misc.getCategory(), removeItems, checkoutLeave);
     }
 
-
-    // method that only handles the decisions made by the user (decisionHandler)
-    // contains a switch that calls methods that reads in food in a specific category and prints them
     private void decisionHandler(int userChoice) {
 
         switch (userChoice) {
@@ -114,7 +110,6 @@ public class GeneralStore extends Location {
         }
     }
 
-    // TODO: break up this behemoth into other methods.
     private void selectItems(Category aisleCategory) {
         boolean continueAddingItems = true;
 
@@ -227,12 +222,5 @@ public class GeneralStore extends Location {
 
     public List<Ingredient> getCart() {
         return cart;
-    }
-
-    public static void main(String[] args) {
-        GeneralStore test = new GeneralStore();
-        test.execute();
-
-
     }
 }

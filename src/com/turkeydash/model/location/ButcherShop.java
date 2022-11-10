@@ -1,23 +1,21 @@
-package com.turkeydash.locationmodel;
+package com.turkeydash.model.location;
 
-import com.turkeydash.dishmodel.Chicken;
-import com.turkeydash.dishmodel.Ham;
-import com.turkeydash.dishmodel.Turkey;
-import com.turkeydash.dishmodel.Dish;
+import com.turkeydash.model.dish.Dishes;
+import com.turkeydash.model.dish.Dish;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class ButcherShop extends Location{
-    private final Turkey turkey;
-    private final Ham ham;
-    private final Chicken chicken;
+    private final Dish turkey;
+    private final Dish ham;
+    private final Dish chicken;
     private final List<Dish> meats;
 
     public ButcherShop() {
-        this.turkey = new Turkey();
-        this.ham = new Ham();
-        this.chicken = new Chicken();
+        this.turkey = Dishes.get("Turkey");
+        this.ham = Dishes.get("Ham");
+        this.chicken = Dishes.get("Chicken");
         meats = new ArrayList<>();
         meats.add(turkey);
         meats.add(ham);
@@ -28,7 +26,7 @@ public class ButcherShop extends Location{
     public List<String> getDishNames() {
         List<String> meatStrings = new ArrayList<>();
         for (Dish meat: meats) {
-            meatStrings.add(meat.getDishName());
+            meatStrings.add(meat.getName());
         }
         return meatStrings;
     }

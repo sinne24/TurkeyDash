@@ -1,6 +1,6 @@
-package com.turkeydash.locationmodel;
+package com.turkeydash.model.location;
 
-import com.turkeydash.dishmodel.Dish;
+import com.turkeydash.model.dish.Dish;
 
 import java.util.List;
 
