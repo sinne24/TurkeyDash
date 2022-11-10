@@ -31,6 +31,8 @@ public class TurkeyDashApp {
         storyBoard.presentInstructions();
         System.out.println("Are you ready to continue? ");
         readyToContinue = storyBoard.readyToContinue();
+        Console.pause(1);
+        Console.clear();
         if(!readyToContinue){
             exit();
         }
@@ -39,13 +41,23 @@ public class TurkeyDashApp {
                 emptyPlayerHoldings();
             }
             dishes.add(storyBoard.presentButcher());
+            Console.pause(5);
+            Console.clear();
             dishes.add(storyBoard.presentBakery());
+            Console.pause(5);
+            Console.clear();
             dishes.add(storyBoard.presentFarmersMarket());
+            Console.pause(5);
+            Console.clear();
             dishes.add(storyBoard.presentLiquorStore());
+            Console.pause(5);
+            Console.clear();
 
             player.setMenu(dishes);
             storyBoard.presentGeneralStore();
             player.setBasket(generalStore.execute());
+            Console.pause(2);
+            Console.clear();
 
             home.execute(player);
 
