@@ -31,6 +31,7 @@ public class GeneralStore extends Location {
             generalStoreGuide();
             decisionValidator();
         };
+        continueToShop = true;
         return cart;
     }
 

@@ -55,6 +55,7 @@ public class StoryBoard {
         file = "data/locations/presentButcher.txt";
         presentExpositionText(file);
         System.out.println("I serve: ");
+        System.out.println();
         List<String> meats = butcher.getDishNames();
         dump(meats);
         System.out.println("Which of these would you like?");
@@ -76,6 +77,7 @@ public class StoryBoard {
                 }
             }
         }
+        System.out.println();
         presentExpositionText(file);
         return selection;
     }
@@ -87,6 +89,7 @@ public class StoryBoard {
         file = "data/locations/presentBaker.txt";
         presentExpositionText(file);
         System.out.println("I serve: ");
+        System.out.println();
         List<String> grains = baker.getDishNames();
         dump(grains);
         System.out.println("Which of these would you like?");
@@ -108,6 +111,7 @@ public class StoryBoard {
                 }
             }
         }
+        System.out.println();
         presentExpositionText(file);
         return selection;
     }
@@ -119,6 +123,7 @@ public class StoryBoard {
         file = "data/locations/presentFarmer.txt";
         presentExpositionText(file);
         System.out.println("I serve: ");
+        System.out.println();
         List<String> grains = farmersMarket.getDishNames();
         dump(grains);
         System.out.println("Which of these would you like?");
@@ -140,6 +145,7 @@ public class StoryBoard {
                 }
             }
         }
+        System.out.println();
         presentExpositionText(file);
         return selection;
     }
@@ -151,6 +157,7 @@ public class StoryBoard {
         file = "data/locations/presentLiquorEmployee.txt";
         presentExpositionText(file);
         System.out.println("I serve: ");
+        System.out.println();
         List<String> grains = liquorStore.getDishNames();
         dump(grains);
         System.out.println("Which of these would you like?");
@@ -172,6 +179,7 @@ public class StoryBoard {
                 }
             }
         }
+        System.out.println();
         presentExpositionText(file);
         return selection;
     }

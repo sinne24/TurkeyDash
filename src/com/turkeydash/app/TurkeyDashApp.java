@@ -1,5 +1,6 @@
 package com.turkeydash.app;
 
+import com.apps.util.Console;
 import com.turkeydash.model.location.GeneralStore;
 import com.turkeydash.model.location.Home;
 import com.turkeydash.model.dish.Dish;
@@ -31,36 +32,31 @@ public class TurkeyDashApp {
         storyBoard.presentInstructions();
         System.out.println("Are you ready to continue? ");
         readyToContinue = storyBoard.readyToContinue();
-        Console.pause(1);
+        Console.pause(1000);
         Console.clear();
         if(!readyToContinue){
             exit();
         }
         while(play) {
-            if(!player.getBasket().isEmpty()) {
-                emptyPlayerHoldings();
-            }
+            emptyPlayerHoldings();
             dishes.add(storyBoard.presentButcher());
-            Console.pause(5);
-            Console.clear();
+            Console.pause(1000);
             dishes.add(storyBoard.presentBakery());
-            Console.pause(5);
-            Console.clear();
+            Console.pause(1000);
             dishes.add(storyBoard.presentFarmersMarket());
-            Console.pause(5);
-            Console.clear();
+            Console.pause(1000);
             dishes.add(storyBoard.presentLiquorStore());
-            Console.pause(5);
-            Console.clear();
+            Console.pause(1000);
 
             player.setMenu(dishes);
+            Console.clear();
+            Console.pause(1000);
             storyBoard.presentGeneralStore();
             player.setBasket(generalStore.execute());
-            Console.pause(2);
+            Console.pause(1000);
             Console.clear();
 
             home.execute(player);
-
             play = playAgain();
         }
     }
@@ -76,6 +72,7 @@ public class TurkeyDashApp {
             play = false;
             exit();
         }
+        Console.clear();
         return true;
     }
 
@@ -88,6 +85,8 @@ public class TurkeyDashApp {
         player = new Player();
         System.out.println("Please enter your name: ");
         player.setName(scanner.nextLine().trim());
+        Console.clear();
+        Console.pause(1000);
         System.out.println("Welcome " + player.getName() + "!");
     }
 
